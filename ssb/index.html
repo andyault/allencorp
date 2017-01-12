@@ -1,0 +1,676 @@
+<!-- <?php
+	session_start();
+
+	$_SESSION['csrf-token'] = '';
+?> -->
+
+<!doctype HTML>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/media.css">
+
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Source+Sans+Pro:400,700" rel="stylesheet">
+
+		<title>McAfee Small Business Security</title>
+
+		<style>
+			header {
+				background: #9e0807;
+				height: 90px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div class="content">
+				<a href="/"><img src="img/logo.png"></a>
+			</div>
+		</header>
+
+		<!-- start here -->
+
+		<section id="splash">
+			<div id="video">
+				<div class="filter"></div>
+
+				<video id="video-video" autoplay loop>
+					<source src="img/splash/splash.mp4" type="video/mp4">
+					<source src="img/splash/splash.webm" type="video/webm">
+				</video>
+
+				<div class="video-fallback"></div>
+			</div>
+
+			<div class="content flex-center">
+				<h1 class="body bold upper"><span class="col-accent">Allen Corporation</span> presents</h1>
+				<h1 class="title">McAfee<span class="sup">&copy;</span> Small Business Security</h1>
+
+				<p class="body iso">Comprehensive security for your business.</p>
+
+				<a href="#buy" class="btn btn-buy">See Pricing</a>
+			</div>
+		</section>
+
+		<section id="features">
+			<div class="content">
+				<h1 class="subtitle upper center">Why us?</h1>
+				<h1 class="title title-header upper center">Features</h1>
+
+				<div id="highlights" class="flex flex-wrap col3 center" style="justify-content: center">
+					<div class="highlight">
+						<div style="background-position: 0 0;"></div>
+						<h1 class="body body-header bold"><span class="col-accent">Comprehensive</span> security</h1>
+
+						<p class="body body-em">Keep your business and customer data secure with email, web, and firewall protection.</p>
+					</div>
+
+					<div class="highlight">
+						<div style="background-position: 50% 0;"></div>
+						<h1 class="body body-header bold">Covers <span class="col-accent">all mobile devices</span></h1>
+
+						<p class="body body-em">Guard your PCs, Macs, smartphones and tablets against viruses, malware, and the latest online threats.</p>
+					</div>
+
+					<div class="highlight">
+						<div style="background-position: 100% 0;"></div>
+						<h1 class="body body-header bold">Simple and <span class="col-accent">easy to manage</span></h1>
+
+						<p class="body body-em">Manage all of your business's devices from one central location.</p>
+					</div>
+
+					<div class="highlight">
+						<div style="background-position: 0 100%;"></div>
+						<h1 class="body body-header bold">Flexible licensing for <span class="col-accent">your business</span></h1>
+
+						<p class="body body-em">Increase the number of devices as your business grows to ensure you and your employees stay protected.</p>
+					</div>
+
+					<div class="highlight">
+						<div style="background-position: 50% 100%;"></div>
+						<h1 class="body body-header bold">Free <span class="col-accent">award-winning support</span></h1>
+
+						<p class="body body-em">Ensure your business stays protected with our award-winning technical support and PC Virus Removal Service for no additional cost.</p>
+					</div>
+
+					<!-- 
+					<div class="highlight">
+						<img src="img/ico_guarantee.png">
+						<h1 class="body body-header bold"><span class="col-accent">Money back</span> guarantee</h1>
+
+						<p class="body body-em">If for any reason you are not 100% satisfied, just let us know within 30 days of purchase and get a full refund.</p>
+					</div>
+					-->
+				</div>
+
+				<div class="center">
+					<input type="checkbox" id="seemorefeatures">
+					<label for="seemorefeatures" class="btn btn-toggle body-header"> All Features</label>
+
+					<ul id="morefeatures" class="inline-list flex flex-wrap col4 body body-em padded-list">
+						<li>PC, Mac, Android, and iOS support</li>
+						<li>Next generation anti-malware engine with GTI</li>
+						<li>Two-way firewall</li>
+						<li>Web browsing protection</li>
+						<li>Powerful anti-spam protection</li>
+						<li>File shredder</li>
+						<li>Backup mobile contacts</li>
+						<li>Locate, track, lock, and wipe mobile devices</li>
+						<li>Safeguard against risky mobile apps</li>
+						<li>Free technical support</li>
+						<li>Free virus removal service</li>
+						<li>Cloud based management</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="facts">
+			<div class="content center">
+				<h1 class="subtitle upper">Check the numbers</h1>
+				<h1 class="title title-header upper">Every day: </h1>
+
+				<ul class="flex col4 inline-list body padded-list">
+					<li>
+						<h1 class="title title-half col-accent">100 million</h1>
+						<p>malicious URL visits prevented</p>
+					</li>
+
+					<li>
+						<h1 class="title title-half col-accent">30 million</h1>
+						<p>potentionally unwanted programs stopped</p>
+					</li>
+
+					<li>
+						<h1 class="title title-half col-accent">104 million</h1>
+						<p>malicious files removed</p>
+					</li>
+
+					<li>
+						<h1 class="title title-half col-accent">29 million</h1>
+						<p>risky IP address connections blocked</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="awards" class="content center">
+			<h1 class="subtitle upper">Need more proof?</h1>
+			<h1 class="title title-header upper center">Awards &amp; Accolades</h1>
+
+			<ul class="inline-list padded-list center">
+				<li><a class="award" href="http://chart.av-comparatives.org/awards.php?year=2016"
+						style="background-position: 0 0;"></a></li>
+
+				<li><a class="award" href="https://www.av-test.org/en/antivirus/home-windows/windows-10/october-2016/"
+						style="background-position: 50% 0;"></a></li>
+
+				<li><a class="award" href="https://securingtomorrow.mcafee.com/business/security-connected/mcafee-siem-receives-techtarget-readers-choice-awards-2014/"
+						style="background-position: 100% 0;"></a></li>
+
+				<li><a class="award" href="http://www.toptenreviews.com/software/security/best-antivirus-software/mcafee-review/"
+						style="background-position: 0 100%;"></a></li>
+
+				<li><a class="award" href="http://www.toptenreviews.com/software/security/best-antivirus-software/mcafee-review/"
+						style="background-position: 50% 100%;"></a></li>
+
+				<li><a class="award" href="http://www.pcmag.com/article2/0,2817,2469309,00.asp"
+						style="background-position: 100% 100%;"></a></li>
+			</ul>
+		</section>
+
+		<section id="compare">
+			<div class="content">
+				<h1 class="subtitle upper center">Us vs. Them</h1>
+				<h1 class="title title-header upper center">Compare to other AV solutions</h1>
+
+				<table class="table body">
+					<colgroup>
+						<col style="width: 20%">
+						<col style="width: 10%">
+						<col style="width: 10%" class="hide768">
+						<col style="width: 10%">
+						<col style="width: 10%" class="hide768">
+						<col style="width: 10%" class="hide480">
+						<col style="width: 10%">
+						<col style="width: 10%">
+						<col style="width: 10%" class="hide480">
+					</colgroup>
+
+					<thead>
+						<tr class="body bold">
+							<th></th>
+							<th>McAfee</th>
+							<th class="hide768">Sophos</th>
+							<th>Kapersky</th>
+							<th class="hide768">ThreatTrack</th>
+							<th class="hide480">ESET</th>
+							<th class="hide320">Avast</th>
+							<th>AVG</th>
+							<th class="hide480">Bitdefender</th>
+						</tr>
+
+						<tr class="center top">
+							<td></td>
+							<td>Small Business Security</td>
+							<td class="hide768">AV Business</td>
+							<td>Small Office Security</td>
+							<td class="hide768">Vipre Business AV</td>
+							<td class="hide480">Endpoint AV</td>
+							<td class="hide320">Endpoint Protection</td>
+							<td>Endpoint AV</td>
+							<td class="hide480">Small Office Security</td>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr class="center">
+							<th class="left">Antivirus/Antispyware (PC/Mac)</th>
+							<td><i class="check-full"></i></td>
+							<td class="hide768"><i class="check-full"></i></td>
+							<td><i class="check-half"></i></td>
+							<td class="hide768"><i class="check-full"></i></td>
+							<td class="hide480"><i class="check-half"></i></td>
+							<td class="hide320"><i class="check-half"></i></td>
+							<td><i class="check-half"></i></td>
+							<td class="hide480"><i class="check-half"></i></td>
+						</tr>
+
+						<tr class="center">
+							<th class="left">Access Protection/&#8203;Exploit Prevention</th>
+							<td><i class="check-full"></i></td>
+							<td class="hide768"><i class="check-half"></i></td>
+							<td></td>
+							<td class="hide768"></td>
+							<td class="hide480"><i class="check-half"></i></td>
+							<td class="hide320"></td>
+							<td></td>
+							<td class="hide480"></td>
+						</tr>
+
+						<tr class="center">
+							<th class="left">Firewall</th>
+							<td><i class="check-full"></i></td>
+							<td class="hide768"><i class="check-full"></i></td>
+							<td><i class="check-full"></i></td>
+							<td class="hide768"></td>
+							<td class="hide480"></td>
+							<td class="hide320"></td>
+							<td><i class="check-full"></i></td>
+							<td class="hide480"><i class="check-full"></i></td>
+						</tr>
+
+						<tr class="center">
+							<th class="left">Safe Search/&#8203;Filtering</th>
+							<td><i class="check-full"></i></td>
+							<td class="hide768"></td>
+							<td><i class="check-half"></i></td>
+							<td class="hide768"></td>
+							<td class="hide480"></td>
+							<td class="hide320"><i class="check-half"></i></td>
+							<td></td>
+							<td class="hide480"><i class="check-full"></i></td>
+						</tr>
+
+						<tr class="center">
+							<th class="left">Mobile Security &amp; MDM</th>
+							<td><i class="check-half"></i></td>
+							<td class="hide768"></td>
+							<td><i class="check-half"></i></td>
+							<td class="hide768"><i class="check-half"></i></td>
+							<td class="hide480"></td>
+							<td class="hide320"></td>
+							<td></td>
+							<td class="hide480"></td>
+						</tr>
+
+						<tr class="center">
+							<th class="left">Email Security</th>
+							<td><i class="check-half"></i></td>
+							<td class="hide768"></td>
+							<td></td>
+							<td class="hide768"><i class="check-full"></i></td>
+							<td class="hide480"><i class="check-full"></i></td>
+							<td class="hide320"></td>
+							<td></td>
+							<td class="hide480"></td>
+						</tr>
+
+						<tr class="center">
+							<th class="left">Cloud Management</th>
+							<td><i class="check-half"></i></td>
+							<td class="hide768"></td>
+							<td></td>
+							<td class="hide768"></td>
+							<td class="hide480"></td>
+							<td class="hide320"></td>
+							<td></td>
+							<td class="hide480"><i class="check-full"></i></td>
+						</tr>
+
+						<tr class="center">
+							<th class="left">Virus Removal Service</th>
+							<td><i class="check-full"></i></td>
+							<td class="hide768"></td>
+							<td></td>
+							<td class="hide768"></td>
+							<td class="hide480"></td>
+							<td class="hide320"></td>
+							<td></td>
+							<td class="hide480"><i class="check-full"></i></td>
+						</tr>
+
+						<tr class="center table-sub">
+							<th class="left">Price per license</th>
+							<td><span class="strike">$16</span> <span class="bold body-title">$14</span></td>
+							<td class="hide768">$21</td>
+							<td>$23</td>
+							<td class="hide768">$15</td>
+							<td class="hide480">$24</td>
+							<td class="hide320">$22</td>
+							<td>$25</td>
+							<td class="hide480">$28</td>
+						</tr>
+					</tbody>
+
+					<tfoot>
+						<tr>
+							<td class="center" colspan="9">* Partially supported</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</section>
+
+		<section id="buy">
+			<div class="content center">
+				<h1 class="subtitle center upper">Let's get started</h1>
+				<h1 class="title title-header center upper">Purchase a License</h1>
+
+				<div class="shop-item">
+					<span class="body body-title">McAfee Small Business Security License</span>
+
+					<span class="float-right">
+						<!--
+						<label class="body">
+							Quantity: 
+							<input id="license-quantity" class="input input-quantity" type="number" placeholder="1-99" maxlength="2" min="1" max="99" inputmode="numeric" required>
+						</label>
+
+						<a href id='buybtn' class="btn btn-buy">Add to Cart</a>
+						-->
+
+						<div id='product-component-4702bc06f75' style="display:inline-block;"></div>
+					</span>
+				</div>
+			</div>
+		</section>
+
+		<!--
+		<section id="contact">
+			<div class="content">
+				<h1 class="subtitle center upper">Questions?</h1>
+				<h1 class="title title-header center upper">We're here to help.</h1>
+
+				<form id="email" class="content body" method="post" action>
+					<label>
+						Name: 
+						<input type="text" name="name" class="input" autocomplete="name" placeholder="John Doe">
+					</label>
+
+					<label>
+						Email: 
+						<input type="email" name="email" class="input" autocomplete="email" placeholder="johndoe@example.com" required>
+					</label>
+
+					<label>
+						Message: 
+						<textarea name="body" class="input" placeholder="Is McAfee Small Business Security right for me?" required></textarea>
+					</label>
+
+					<!-- <span class="body">You can also send an email to <a href="mailto:csdsales@allencorp.com">csdsales@allencorp.com</a>.</span> - ->
+
+					<input type="submit" class="btn btn-buy float-right">
+				</form>
+			</div>
+		</section>
+		-->
+
+		<footer class="body center">
+			&copy; <a href="/">Allen Corporation</a> 2017 - <a href="#top">Top</a>
+		</footer>
+
+		<script>
+			//vars for features drawer
+			var btnFeat = document.getElementById('seemorefeatures');
+			var elemFeat = document.getElementById('morefeatures');
+
+			//size video correctly
+			var vid = document.getElementById('video-video');
+
+			window.onresize = function() {
+				//see if we even want to load the video
+				if(document.body.clientWidth > 480)
+					vid.attributes.autoplay.value = 'true';
+				else
+					vid.attributes.autoplay.value = undefined;
+
+				//get size of parent container
+				var parentW = vid.parentNode.clientWidth;
+				var parentH = vid.parentNode.clientHeight;
+
+				//aspect ratio of video
+				var aspect = vid.videoWidth / vid.videoHeight;
+
+				//default to 1080p
+				if(isNaN(aspect)) aspect = 1920 / 1080;
+
+				//calc video size
+				var vidW = parentW;
+				var vidH = (parentW / aspect);
+
+				//if portrait, adjust
+				if(vidH < parentH) {
+					vidH = parentH;
+					vidW = parentH * aspect;
+				}
+
+				//set size and pos
+				vid.style.width = vidW + 'px';
+				vid.style.height = vidH + 'px';
+
+				vid.style.top = (parentH / 2 - vidH / 2) + 'px';
+				vid.style.left = (parentW / 2 - vidW / 2) + 'px';
+
+				//while we're here, handle features drawer resizing
+				if(!!parseInt(elemFeat.style.maxHeight))
+					elemFeat.style.maxHeight = elemFeat.scrollHeight + 'px';
+			}
+
+			window.onresize();
+
+			//see more features drawer
+			var btnFeat = document.getElementById('seemorefeatures');
+			var elemFeat = document.getElementById('morefeatures');
+
+			btnFeat.onclick = function() {
+				if(!!parseInt(elemFeat.style.maxHeight))
+					elemFeat.style.maxHeight = 0;
+				else
+					elemFeat.style.maxHeight = elemFeat.scrollHeight + 'px';
+			}
+
+			/* 
+			//clamp quantity to 1-99
+			document.getElementById('license-quantity').onblur = function() {
+				if(this.value !== '') {
+					var min = parseInt(this.attributes.min.value);
+					var max = parseInt(this.attributes.max.value);
+
+					this.value = Math.max(Math.min(this.value, max), min);
+				}
+			}
+
+			//buy button
+			document.getElementById('buybtn').onclick = function() {
+				document.getElementById('product-component-4702bc06f75').click();
+
+				return false;
+			}
+			*/
+		</script>
+
+		<script type="text/javascript">
+			/*<![CDATA[*/
+			 
+			(function () {
+			  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+			  if (window.ShopifyBuy) {
+			    if (window.ShopifyBuy.UI) {
+			      ShopifyBuyInit();
+			    } else {
+			      loadScript();
+			    }
+			  } else {
+			    loadScript();
+			  }
+			 
+			  function loadScript() {
+			    var script = document.createElement('script');
+			    script.async = true;
+			    script.src = scriptURL;
+			    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+			    script.onload = ShopifyBuyInit;
+			  }
+			 
+			  function ShopifyBuyInit() {
+			    var client = ShopifyBuy.buildClient({
+			      domain: '****',
+			      apiKey: '****',
+			      appId: '6',
+			    });
+			 
+			    ShopifyBuy.UI.onReady(client).then(function (ui) {
+			      ui.createComponent('product', {
+			        id: [9117927236],
+			        node: document.getElementById('product-component-4702bc06f75'),
+			        moneyFormat: '%24%7B%7Bamount%7D%7D',
+			        options: {
+			  "product": {
+			    "variantId": "all",
+			    "width": "240px",
+			    "contents": {
+			      "img": false,
+			      "title": false,
+			      "variantTitle": false,
+			      "price": false,
+			      "description": false,
+			      "buttonWithQuantity": true,
+			      "button": false,
+			      "quantity": false
+			    },
+			    "text": {
+			      "button": "Buy Now >"
+			    },
+			    "styles": {
+			      "product": {
+			        "text-align": "left",
+			        "@media (min-width: 601px)": {
+			          "max-width": "100%",
+			          "margin-left": "20px",
+			          "margin-bottom": "50px"
+			        }
+			      },
+			      "button": {
+			        "background-color": "#c00a27",
+			        "font-size": "13px",
+			        "padding-top": "14.5px",
+			        "padding-bottom": "14.5px",
+			        ":hover": {
+			          "background-color": "#ad0923"
+			        },
+			        "border-radius": "10px",
+			        ":focus": {
+			          "background-color": "#ad0923"
+			        }
+			      },
+			      "title": {
+			        "font-size": "26px"
+			      },
+			      "price": {
+			        "font-size": "18px"
+			      },
+			      "quantityInput": {
+			        "font-size": "13px",
+			        "padding-top": "14.5px",
+			        "padding-bottom": "14.5px"
+			      },
+			      "compareAt": {
+			        "font-size": "15px"
+			      }
+			    }
+			  },
+			  "cart": {
+			    "contents": {
+			      "button": true
+			    },
+			    "text": {
+			      "total": "Total"
+			    },
+			    "styles": {
+			      "button": {
+			        "background-color": "#c00a27",
+			        "font-size": "13px",
+			        "padding-top": "14.5px",
+			        "padding-bottom": "14.5px",
+			        ":hover": {
+			          "background-color": "#ad0923"
+			        },
+			        "border-radius": "10px",
+			        ":focus": {
+			          "background-color": "#ad0923"
+			        }
+			      },
+			      "footer": {
+			        "background-color": "#ffffff"
+			      }
+			    }
+			  },
+			  "modalProduct": {
+			    "contents": {
+			      "variantTitle": false,
+			      "buttonWithQuantity": false,
+			      "quantity": false
+			    },
+			    "styles": {
+			      "product": {
+			        "@media (min-width: 601px)": {
+			          "max-width": "100%",
+			          "margin-left": "20px",
+			          "margin-bottom": "50px"
+			        }
+			      },
+			      "button": {
+			        "background-color": "#c00a27",
+			        "font-size": "13px",
+			        "padding-top": "14.5px",
+			        "padding-bottom": "14.5px",
+			        ":hover": {
+			          "background-color": "#ad0923"
+			        },
+			        "border-radius": "10px",
+			        ":focus": {
+			          "background-color": "#ad0923"
+			        }
+			      },
+			      "price": {
+			        "font-size": "14px"
+			      },
+			      "quantityInput": {
+			        "font-size": "13px",
+			        "padding-top": "14.5px",
+			        "padding-bottom": "14.5px"
+			      }
+			    }
+			  },
+			  "toggle": {
+			    "styles": {
+			      "toggle": {
+			        "background-color": "#c00a27",
+			        ":hover": {
+			          "background-color": "#ad0923"
+			        },
+			        ":focus": {
+			          "background-color": "#ad0923"
+			        }
+			      },
+			      "count": {
+			        "font-size": "13px"
+			      }
+			    }
+			  },
+			  "productSet": {
+			    "styles": {
+			      "products": {
+			        "@media (min-width: 601px)": {
+			          "margin-left": "-20px"
+			        }
+			      }
+			    }
+			  }
+			}
+			      });
+			    });
+			  }
+			})();
+			/*]]>*/
+		</script>
+
+		<!-- end here -->
+	</body>
+</html>

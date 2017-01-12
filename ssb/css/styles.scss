@@ -1,0 +1,407 @@
+/* variables */
+$contentWidth: 	1200px;
+$sectionHeight: 420px;
+
+$titleFont: 	'Montserrat', helvetica, sans-serif;
+$bodyFont: 		'Source Sans Pro', arial, sans-serif;
+
+$col1: 	#FFFFFF;
+$col2: 	#9E0807;
+$col3: 	#079E34;
+$col4: 	#f1c40f;
+$col5: 	#005a9e;
+
+$transLength: 	0.3s;
+
+/* basics */
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+h1, p { margin: 0; }
+
+section { padding: 1em 0; }
+
+footer {
+	width: 100%;
+	height: 2em;
+	line-height: 2em;
+	margin-top: 64px;
+
+	background: $col2;
+	color: $col1;
+}
+
+footer a { text-decoration: none; color: inherit; }
+
+/* blocks */
+.content {
+	position: relative;
+	width: $contentWidth;
+	left: 50%;
+	transform: translateX(-50%);
+	overflow: hidden;
+}
+
+.table {
+	margin-top: 2em;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+	tbody td {
+		font-size: 1.5em;
+	}
+}
+
+/* elements */
+.btn {
+	display: inline-block;
+	padding: .5em 1em;
+
+	text-decoration: none;
+	font-family: $bodyFont;
+	border-radius: 4px;
+	cursor: pointer;
+
+	color: $col1;
+	border: 2px solid transparent;
+
+	transition-property: background, color, border-color;
+	transition-duration: $transLength;
+
+	&:hover, &.active {
+		background: transparent;
+	}
+}
+
+.input {
+	padding: .5em;
+
+	font-family: $bodyFont;
+	font-size: 1em;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+.col3 * { flex-basis: 33.33%; }
+.col4 * { flex-basis: 25%; }
+.col5 * { flex-basis: 20%; }
+.col6 * { flex-basis: 16.66%; }
+
+.flex { display: flex; }
+.icons { justify-content: space-around; }
+
+.highlight {
+	padding: 0 2em;
+	margin-bottom: 2em;
+
+	& div {
+		display: inline-block;
+		max-width: 100%;
+		width: 240px;
+		height: 240px;
+		margin-bottom: 1em;
+
+		background-image: url('../img/icons.png');
+		background-size: 720px 480px;
+	}
+}
+
+.award {
+	display: inline-block;
+	width: 128px;
+	height: 128px;
+
+	background-image: url('../img/awards.png');
+	background-size: 384px 256px;
+}
+
+.check-full, .check-half {
+	display: inline-block;
+
+	&:after {
+		content: '';
+		display: block;
+		width: .5em;
+		height: 1em;
+		transform: rotate(45deg);
+
+		border: solid $col1;
+		border-width: 0 .2em .2em 0;
+	}
+}
+
+.check-half {
+	position: relative;
+
+	&:before {
+		position: absolute;
+		content: '*';
+
+		right: -.75em;
+	}
+}
+
+.shop-item {
+	display: inline-block;
+	width: 768px;
+	max-width: 100%;
+
+	text-align: left;
+}
+
+/* modifiers */
+.flex-wrap { flex-wrap: wrap; }
+.flex-center { align-self: center; }
+
+.sub { font-size: .5em; }
+.sup {
+	font-size: .5em;
+	vertical-align: top;
+}
+
+.title {
+	font-family: $titleFont;
+	font-size: 2em;
+}
+.title-big { font-size: 2.5em; }
+.title-sub { font-size: 1em; }
+.title-half { font-size: 1.5em; }
+.title-header { margin-bottom: 1em; }
+
+.subtitle {
+	margin: 1em 0;
+
+	opacity: 0.5;
+	font-family: $titleFont;
+	font-size: 1em;
+}
+
+.body {
+	font-size: 1em;
+	font-family: $bodyFont;
+	font-weight: normal;
+}
+.body-header {
+	margin-bottom: 1em;
+	font-size: 1.38em;
+}
+.body-title { font-size: 1.5em !important; }
+.body-em { line-height: 1.618em; }
+
+.table .table-sub td {
+	font-size: 1.125em;
+}
+
+.iso { margin: 1em 0; }
+
+.bold { font-weight: bold; }
+.upper { text-transform: uppercase; }
+
+.center { text-align: center; }
+.top { vertical-align: top; }
+.left { text-align: left; }
+
+.float-right { float: right; }
+
+.col-accent { color: $col2; }
+.col-contrast { color: $col3; }
+.col-col5 { color: $col5; }
+
+.strike {
+	position: relative;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: -0.05em;
+		right: 0.5em;
+		width: 0;
+		height: 1.5em;
+		transform: rotate(-45deg);
+
+		border-right: 2px solid $col1;
+	}
+}
+
+.btn-buy {
+	background: $col3;
+
+	&:hover {
+		color: $col3;
+		border-color: $col3;
+	}
+
+}
+
+.btn-toggle {
+	background: $col5;
+
+	&:hover {
+		color: $col5;
+		border-color: $col5;
+	}
+}
+
+.input-quantity {
+	width: 64px;
+	
+	margin: 0 1em 0 0.5em;
+}
+
+.inline-list {
+	padding: 0;
+
+	li {
+		display: inline-block;
+		list-style: none;
+	}
+}
+
+.padded-list li { padding: 1em; }
+
+/* ids */
+#splash {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: $sectionHeight;
+	padding: 2em 0;
+	overflow: hidden;
+
+	text-align: center;
+	color: #fff;
+
+	#video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		.filter { background: rgba(0, 0, 0, 0.4); z-index: 1; }
+
+		.filter, video {
+			position: absolute;
+			min-width: 100%;
+			min-height: 100%;
+		}
+
+		.video-fallback {
+			width: 100%;
+			height: 100%;
+
+			background-image: url('../img/splash/splash.jpg');
+			background-size: cover;
+			background-position: center center;
+		}
+	}
+
+	.content { width: 460px; z-index: 2; }
+	.title { font-size: 3em; }
+	.body.iso { font-size: 1.5em; }
+	.btn-buy { font-size: 1.125em; margin-top: 1em; }
+}
+
+#seemorefeatures {
+	position: absolute;
+	left: -999px;
+
+	& ~ label:before {
+		content: 'See';
+	}
+}
+
+#morefeatures { 
+	max-height: 0;
+	overflow: hidden;
+
+	transition: max-height $transLength;
+
+	li {
+		display: list-item;
+		list-style: inside disc;
+	}
+}
+
+#seemorefeatures:checked ~ label {
+	@extend .btn:hover, .btn-toggle:hover;
+
+	&:before {
+		content: 'Hide';
+	}
+}
+
+#facts {
+	background: #eee;
+}
+
+#awards {
+	li { display: inline-flex; }
+
+	img {
+		width: 100%;
+		max-width: 192px;
+		max-height: 128px;
+	}
+}
+
+#compare {
+	background: $col5;
+	color: $col1;
+
+	tbody {
+		tr:nth-of-type(2n) {
+			background: rgba(255, 255, 255, 0.1);
+		}
+
+		th {
+			padding-left: 1.5em;
+		}
+
+		td {
+			height: 48px;
+		}
+	}
+}
+
+#buy {
+	.content { padding: 0 1em; }
+	.body-title { line-height: 40px; }
+}
+
+#contact { background: #eee; }
+
+#email {
+	width: 480px;
+	padding: 0 1em;
+
+	.input, textarea {
+		width: 100%;
+		margin-top: 0.25em;
+	}
+
+	.input {
+		margin-bottom: 1em;
+	}
+
+	textarea {
+		height: 6em;
+		margin-bottom: 0.5em;
+		resize: vertical;
+	}
+
+	span {
+		line-height: 40px;
+		font-size: 14px;
+	}
+
+	input[type="submit"] { font-size: 1em; }
+}
