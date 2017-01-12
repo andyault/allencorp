@@ -38,8 +38,6 @@ footer {
 	color: $col1;
 }
 
-footer a { text-decoration: none; color: inherit; }
-
 /* blocks */
 .content {
 	position: relative;
@@ -100,17 +98,17 @@ footer a { text-decoration: none; color: inherit; }
 .highlight {
 	padding: 0 2em;
 	margin-bottom: 2em;
+}
 
-	& div {
-		display: inline-block;
-		max-width: 100%;
-		width: 240px;
-		height: 240px;
-		margin-bottom: 1em;
+.highlight-img {
+	display: inline-block;
+	max-width: 100%;
+	width: 240px;
+	height: 240px;
+	margin-bottom: 1em;
 
-		background-image: url('../img/icons.png');
-		background-size: 720px 480px;
-	}
+	background-image: url('../img/icons.png');
+	background-size: 720px 480px;
 }
 
 .award {
@@ -158,7 +156,8 @@ footer a { text-decoration: none; color: inherit; }
 
 /* modifiers */
 .flex-wrap { flex-wrap: wrap; }
-.flex-center { align-self: center; }
+.flex-center { justify-content: center; }
+.flex-middle { align-self: center; }
 
 .sub { font-size: .5em; }
 .sup {
@@ -229,6 +228,14 @@ footer a { text-decoration: none; color: inherit; }
 
 		border-right: 2px solid $col1;
 	}
+}
+
+.link-nodeco { text-decoration: none; color: inherit; }
+.link-nocolor { color: inherit; }
+.link-img {
+	transition: opacity $transLength;
+
+	&:hover { opacity: 0.8; }
 }
 
 .btn-buy {
@@ -338,6 +345,8 @@ footer a { text-decoration: none; color: inherit; }
 		content: 'Hide';
 	}
 }
+
+#youtube-video { width: 768px; height: 432px; }
 
 #facts {
 	background: #eee;

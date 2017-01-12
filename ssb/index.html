@@ -47,7 +47,7 @@
 				<div class="video-fallback"></div>
 			</div>
 
-			<div class="content flex-center">
+			<div class="content flex-middle">
 				<h1 class="body bold upper"><span class="col-accent">Allen Corporation</span> presents</h1>
 				<h1 class="title">McAfee<span class="sup">&copy;</span> Small Business Security</h1>
 
@@ -62,41 +62,50 @@
 				<h1 class="subtitle upper center">Why us?</h1>
 				<h1 class="title title-header upper center">Features</h1>
 
-				<div id="highlights" class="flex flex-wrap col3 center" style="justify-content: center">
+				<div id="highlights" class="flex flex-wrap flex-center col3 center">
 					<div class="highlight">
-						<div style="background-position: 0 0;"></div>
+						<div class="highlight-img" style="background-position: 0 0;"></div>
 						<h1 class="body body-header bold"><span class="col-accent">Comprehensive</span> security</h1>
 
 						<p class="body body-em">Keep your business and customer data secure with email, web, and firewall protection.</p>
 					</div>
 
 					<div class="highlight">
-						<div style="background-position: 50% 0;"></div>
+						<div class="highlight-img" style="background-position: 50% 0;"></div>
 						<h1 class="body body-header bold">Covers <span class="col-accent">all mobile devices</span></h1>
 
 						<p class="body body-em">Guard your PCs, Macs, smartphones and tablets against viruses, malware, and the latest online threats.</p>
 					</div>
 
 					<div class="highlight">
-						<div style="background-position: 100% 0;"></div>
+						<div class="highlight-img" style="background-position: 100% 0;"></div>
 						<h1 class="body body-header bold">Simple and <span class="col-accent">easy to manage</span></h1>
 
 						<p class="body body-em">Manage all of your business's devices from one central location.</p>
 					</div>
 
 					<div class="highlight">
-						<div style="background-position: 0 100%;"></div>
+						<div class="highlight-img" style="background-position: 0 100%;"></div>
 						<h1 class="body body-header bold">Flexible licensing for <span class="col-accent">your business</span></h1>
 
 						<p class="body body-em">Increase the number of devices as your business grows to ensure you and your employees stay protected.</p>
 					</div>
 
 					<div class="highlight">
-						<div style="background-position: 50% 100%;"></div>
+						<div class="highlight-img" style="background-position: 50% 100%;"></div>
 						<h1 class="body body-header bold">Free <span class="col-accent">award-winning support</span></h1>
 
 						<p class="body body-em">Ensure your business stays protected with our award-winning technical support and PC Virus Removal Service for no additional cost.</p>
 					</div>
+
+					<!--
+					<div class="highlight">
+						<a href="https://www.youtube.com/watch?v=nXhxGZAD8Jo" class="highlight-img link-nodeco link-img" style=""></a>
+						<h1 class="body body-header bold">Watch <span class="col-accent">our video</span> to learn more</h1>
+
+						<p class="body body-em">Take a closer look at some of our key features in this short introduction video.</p>
+					</div>
+					-->
 
 					<!-- 
 					<div class="highlight">
@@ -110,9 +119,9 @@
 
 				<div class="center">
 					<input type="checkbox" id="seemorefeatures">
-					<label for="seemorefeatures" class="btn btn-toggle body-header"> All Features</label>
+					<label for="seemorefeatures" class="btn btn-toggle body-header"> More Features</label>
 
-					<ul id="morefeatures" class="inline-list flex flex-wrap col4 body body-em padded-list">
+					<ul id="morefeatures" class="inline-list flex flex-wrap flex-center col4 body body-em padded-list">
 						<li>PC, Mac, Android, and iOS support</li>
 						<li>Next generation anti-malware engine with GTI</li>
 						<li>Two-way firewall</li>
@@ -125,7 +134,12 @@
 						<li>Free technical support</li>
 						<li>Free virus removal service</li>
 						<li>Cloud based management</li>
+						<li style="flex-basis: 100%; list-style: none;"><a href="datasheet.pdf" class="body-header">See data sheet with all features</a></li>
 					</ul>
+				</div>
+
+				<div class="center" style="margin-bottom: 2em;">
+					<iframe id="youtube-video" src="https://www.youtube.com/embed/nXhxGZAD8Jo" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
 		</section>
@@ -135,7 +149,7 @@
 				<h1 class="subtitle upper">Check the numbers</h1>
 				<h1 class="title title-header upper">Every day: </h1>
 
-				<ul class="flex col4 inline-list body padded-list">
+				<ul class="flex flex-center col4 inline-list body padded-list">
 					<li>
 						<h1 class="title title-half col-accent">100 million</h1>
 						<p>malicious URL visits prevented</p>
@@ -402,7 +416,7 @@
 		-->
 
 		<footer class="body center">
-			&copy; <a href="/">Allen Corporation</a> 2017 - <a href="#top">Top</a>
+			&copy; <a href="/" class="link-nocolor">Allen Corporation</a> 2017 - <a href="#top" class="link-nocolor">Top</a>
 		</footer>
 
 		<script>
@@ -465,6 +479,9 @@
 					elemFeat.style.maxHeight = elemFeat.scrollHeight + 'px';
 			}
 
+			btnFeat.checked = false;
+			elemFeat.style.maxHeight = 0;
+
 			/* 
 			//clamp quantity to 1-99
 			document.getElementById('license-quantity').onblur = function() {
@@ -510,8 +527,8 @@
 			 
 			  function ShopifyBuyInit() {
 			    var client = ShopifyBuy.buildClient({
-			      domain: '****',
-			      apiKey: '****',
+			      domain: 'allencorptrial.myshopify.com',
+			      apiKey: 'fd90f06af8018733f93543a0c96debab',
 			      appId: '6',
 			    });
 			 

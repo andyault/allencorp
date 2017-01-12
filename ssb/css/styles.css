@@ -22,10 +22,6 @@ footer {
   background: #9E0807;
   color: #FFFFFF; }
 
-footer a {
-  text-decoration: none;
-  color: inherit; }
-
 /* blocks */
 .content {
   position: relative;
@@ -84,14 +80,15 @@ footer a {
 .highlight {
   padding: 0 2em;
   margin-bottom: 2em; }
-  .highlight div {
-    display: inline-block;
-    max-width: 100%;
-    width: 240px;
-    height: 240px;
-    margin-bottom: 1em;
-    background-image: url("../img/icons.png");
-    background-size: 720px 480px; }
+
+.highlight-img {
+  display: inline-block;
+  max-width: 100%;
+  width: 240px;
+  height: 240px;
+  margin-bottom: 1em;
+  background-image: url("../img/icons.png");
+  background-size: 720px 480px; }
 
 .award {
   display: inline-block;
@@ -129,6 +126,9 @@ footer a {
   flex-wrap: wrap; }
 
 .flex-center {
+  justify-content: center; }
+
+.flex-middle {
   align-self: center; }
 
 .sub {
@@ -221,6 +221,18 @@ footer a {
     transform: rotate(-45deg);
     border-right: 2px solid #FFFFFF; }
 
+.link-nodeco {
+  text-decoration: none;
+  color: inherit; }
+
+.link-nocolor {
+  color: inherit; }
+
+.link-img {
+  transition: opacity 0.3s; }
+  .link-img:hover {
+    opacity: 0.8; }
+
 .btn-buy {
   background: #079E34; }
   .btn-buy:hover {
@@ -302,6 +314,10 @@ footer a {
 
 #seemorefeatures:checked ~ label:before {
   content: 'Hide'; }
+
+#youtube-video {
+  width: 768px;
+  height: 432px; }
 
 #facts {
   background: #eee; }
