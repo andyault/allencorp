@@ -8,6 +8,10 @@ html, body {
   margin: 0;
   padding: 0; }
 
+header {
+  background: #9e0807;
+  height: 90px; }
+
 h1, p {
   margin: 0; }
 

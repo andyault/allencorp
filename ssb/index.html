@@ -9,27 +9,24 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="css/styles.css">
-		<link rel="stylesheet" href="css/media.css">
+		<meta name="description" content="Allen Corporation of America presents McAfee Small Business Security, award winning protection for your home or business.">
+		<meta name="google-site-verification" content="yDpaEMhJ0S1kliXWHBxv0N-uGhfngwyNA90j1eq5qts" />
 
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Source+Sans+Pro:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/media.css" async>
+
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Source+Sans+Pro:400,700" rel="stylesheet" async>
 
 		<title>McAfee Small Business Security</title>
-
-		<style>
-			header {
-				background: #9e0807;
-				height: 90px;
-			}
-		</style>
 	</head>
 
 	<body>
 		<header>
 			<div class="content">
-				<a href="/"><img src="img/logo.png"></a>
+				<a href="/"><img src="img/logo.png" alt="Allen Corporation of America Inc."></a>
 			</div>
 		</header>
 
@@ -407,7 +404,7 @@
 						<textarea name="body" class="input" placeholder="Is McAfee Small Business Security right for me?" required></textarea>
 					</label>
 
-					<!-- <span class="body">You can also send an email to <a href="mailto:csdsales@allencorp.com">csdsales@allencorp.com</a>.</span> - ->
+					<!- - <span class="body">You can also send an email to <a href="mailto:csdsales@allencorp.com">csdsales@allencorp.com</a>.</span> - ->
 
 					<input type="submit" class="btn btn-buy float-right">
 				</form>
@@ -428,11 +425,14 @@
 			var vid = document.getElementById('video-video');
 
 			window.onresize = function() {
-				//see if we even want to load the video
-				if(document.body.clientWidth > 480)
-					vid.attributes.autoplay.value = 'true';
-				else
-					vid.attributes.autoplay.value = undefined;
+				//ie???
+				try {
+					//see if we even want to load the video
+					if(document.body.clientWidth > 480)
+						vid.attributes.autoplay.value = 'true';
+					else
+						vid.attributes.autoplay.value = undefined;
+				} catch(e) {}
 
 				//get size of parent container
 				var parentW = vid.parentNode.clientWidth;
@@ -688,6 +688,19 @@
 			/*]]>*/
 		</script>
 
-		<!-- end here -->
+		<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "description": "McAfee Small Business Security protects the devices that you use for your business so your customer data and sensitive information is safeguarded from hackers and criminals.",
+  "name": "McAfee Small Business Security",
+  "offers": {
+    "@type": "Offer",
+    "availability": "http://schema.org/InStock",
+    "price": "14.00",
+    "priceCurrency": "USD"
+  }
+}
+		</script>
 	</body>
 </html>
