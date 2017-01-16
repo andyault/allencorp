@@ -9,8 +9,10 @@
 		<meta name="description" content="Allen Corporation of America presents McAfee Small Business Security, award winning protection for your home or business.">
 		<meta name="google-site-verification" content="yDpaEMhJ0S1kliXWHBxv0N-uGhfngwyNA90j1eq5qts" />
 
-		<link rel="stylesheet" href="css/styles.css">
-		<link rel="stylesheet" href="css/media.css" async>
+
+		<link rel="stylesheet" href="assets/css/normalize.css">
+		<link rel="stylesheet" href="assets/css/styles.css">
+		<link rel="stylesheet" href="assets/css/media.css" async>
 
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Source+Sans+Pro:400,700" rel="stylesheet" async>
 
@@ -20,7 +22,7 @@
 	<body>
 		<header>
 			<div class="content">
-				<a href="/"><img src="img/logo.png" alt="Allen Corporation of America Inc."></a>
+				<a href="/"><img src="assets/img/logo.png" alt="Allen Corporation of America Inc."></a>
 			</div>
 		</header>
 
@@ -29,8 +31,8 @@
 				<div class="filter"></div>
 
 				<video id="video-video" autoplay loop>
-					<source src="img/splash/splash.mp4" type="video/mp4">
-					<source src="img/splash/splash.webm" type="video/webm">
+					<source src="assets/img/splash/splash.mp4" type="video/mp4">
+					<source src="assets/img/splash/splash.webm" type="video/webm">
 				</video>
 
 				<div class="video-fallback"></div>
@@ -95,15 +97,6 @@
 						<p class="body body-em">Take a closer look at some of our key features in this short introduction video.</p>
 					</div>
 					-->
-
-					<!-- 
-					<div class="highlight">
-						<img src="img/ico_guarantee.png">
-						<h1 class="body body-header bold"><span class="col-accent">Money back</span> guarantee</h1>
-
-						<p class="body body-em">If for any reason you are not 100% satisfied, just let us know within 30 days of purchase and get a full refund.</p>
-					</div>
-					-->
 				</div>
 
 				<div class="center">
@@ -123,7 +116,7 @@
 						<li>Free technical support</li>
 						<li>Free virus removal service</li>
 						<li>Cloud based management</li>
-						<li style="flex-basis: 100%; list-style: none;"><a href="datasheet.pdf" class="body-header">See data sheet with all features</a></li>
+						<li style="flex-basis: 100%; list-style: none;"><a href="assets/datasheet.pdf" class="body-header">See data sheet with all features</a></li>
 					</ul>
 				</div>
 
@@ -358,18 +351,18 @@
 				<div class="shop-item">
 					<span class="body body-title">McAfee Small Business Security License</span>
 
+					<span id="shopify-button" class="float-right"></span>
+
+					<!--
 					<span class="float-right">
-						<!--
 						<label class="body">
 							Quantity: 
-							<input id="license-quantity" class="input input-quantity" type="number" placeholder="1-99" maxlength="2" min="1" max="99" inputmode="numeric" required>
+							<input id="license-quantity" class="input input-quantity" type="number" placeholder="1-99" maxlength="2" min="1" max="99" inputmode="numeric" required disabled>
 						</label>
 
-						<a href id='buybtn' class="btn btn-buy">Add to Cart</a>
-						-->
-
-						<div id='product-component-4702bc06f75' style="display:inline-block;"></div>
+						<a href id="license-button" class="btn btn-buy" disabled>Add to Cart</a>
 					</span>
+					-->
 				</div>
 			</div>
 		</section>
@@ -409,278 +402,13 @@
 		</footer>
 
 		<!-- basic js -->
-		<script>
-			//vars for features drawer
-			var btnFeat = document.getElementById('seemorefeatures');
-			var elemFeat = document.getElementById('morefeatures');
-
-			//size video correctly
-			var vid = document.getElementById('video-video');
-
-			window.onresize = function() {
-				//ie???
-				try {
-					//see if we even want to load the video
-					if(document.body.clientWidth > 480)
-						vid.attributes.autoplay.value = 'true';
-					else
-						vid.attributes.autoplay.value = undefined;
-				} catch(e) {}
-
-				//get size of parent container
-				var parentW = vid.parentNode.clientWidth;
-				var parentH = vid.parentNode.clientHeight;
-
-				//aspect ratio of video
-				var aspect = vid.videoWidth / vid.videoHeight;
-
-				//default to 1080p
-				if(isNaN(aspect)) aspect = 1920 / 1080;
-
-				//calc video size
-				var vidW = parentW;
-				var vidH = (parentW / aspect);
-
-				//if portrait, adjust
-				if(vidH < parentH) {
-					vidH = parentH;
-					vidW = parentH * aspect;
-				}
-
-				//set size and pos
-				vid.style.width = vidW + 'px';
-				vid.style.height = vidH + 'px';
-
-				vid.style.top = (parentH / 2 - vidH / 2) + 'px';
-				vid.style.left = (parentW / 2 - vidW / 2) + 'px';
-
-				//while we're here, handle features drawer resizing
-				if(!!parseInt(elemFeat.style.maxHeight))
-					elemFeat.style.maxHeight = elemFeat.scrollHeight + 'px';
-			}
-
-			window.onresize();
-
-			//see more features drawer
-			var btnFeat = document.getElementById('seemorefeatures');
-			var elemFeat = document.getElementById('morefeatures');
-
-			btnFeat.onclick = function() {
-				if(!!parseInt(elemFeat.style.maxHeight))
-					elemFeat.style.maxHeight = 0;
-				else
-					elemFeat.style.maxHeight = elemFeat.scrollHeight + 'px';
-			}
-
-			btnFeat.checked = false;
-			elemFeat.style.maxHeight = 0;
-
-			/* 
-			//clamp quantity to 1-99
-			document.getElementById('license-quantity').onblur = function() {
-				if(this.value !== '') {
-					var min = parseInt(this.attributes.min.value);
-					var max = parseInt(this.attributes.max.value);
-
-					this.value = Math.max(Math.min(this.value, max), min);
-				}
-			}
-
-			//buy button
-			document.getElementById('buybtn').onclick = function() {
-				document.getElementById('product-component-4702bc06f75').click();
-
-				return false;
-			}
-			*/
-		</script>
+		<script src="assets/js/main.js"></script>
 
 		<!-- shopify -->
-		<script type="text/javascript">
-			/*<![CDATA[*/
-			 
-			(function () {
-			  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-			  if (window.ShopifyBuy) {
-			    if (window.ShopifyBuy.UI) {
-			      ShopifyBuyInit();
-			    } else {
-			      loadScript();
-			    }
-			  } else {
-			    loadScript();
-			  }
-			 
-			  function loadScript() {
-			    var script = document.createElement('script');
-			    script.async = true;
-			    script.src = scriptURL;
-			    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-			    script.onload = ShopifyBuyInit;
-			  }
-			 
-			  function ShopifyBuyInit() {
-			    var client = ShopifyBuy.buildClient({
-			      domain: 'allencorptrial.myshopify.com',
-			      apiKey: 'fd90f06af8018733f93543a0c96debab',
-			      appId: '6',
-			    });
-			 
-			    ShopifyBuy.UI.onReady(client).then(function (ui) {
-			      ui.createComponent('product', {
-			        id: [9117927236],
-			        node: document.getElementById('product-component-4702bc06f75'),
-			        moneyFormat: '%24%7B%7Bamount%7D%7D',
-			        options: {
-			  "product": {
-			    "variantId": "all",
-			    "width": "240px",
-			    "contents": {
-			      "img": false,
-			      "title": false,
-			      "variantTitle": false,
-			      "price": false,
-			      "description": false,
-			      "buttonWithQuantity": true,
-			      "button": false,
-			      "quantity": false
-			    },
-			    "text": {
-			      "button": "Buy Now >"
-			    },
-			    "styles": {
-			      "product": {
-			        "text-align": "left",
-			        "@media (min-width: 601px)": {
-			          "max-width": "100%",
-			          "margin-left": "20px",
-			          "margin-bottom": "50px"
-			        }
-			      },
-			      "button": {
-			        "background-color": "#c00a27",
-			        "font-size": "13px",
-			        "padding-top": "14.5px",
-			        "padding-bottom": "14.5px",
-			        ":hover": {
-			          "background-color": "#ad0923"
-			        },
-			        "border-radius": "10px",
-			        ":focus": {
-			          "background-color": "#ad0923"
-			        }
-			      },
-			      "title": {
-			        "font-size": "26px"
-			      },
-			      "price": {
-			        "font-size": "18px"
-			      },
-			      "quantityInput": {
-			        "font-size": "13px",
-			        "padding-top": "14.5px",
-			        "padding-bottom": "14.5px"
-			      },
-			      "compareAt": {
-			        "font-size": "15px"
-			      }
-			    }
-			  },
-			  "cart": {
-			    "contents": {
-			      "button": true
-			    },
-			    "text": {
-			      "total": "Total"
-			    },
-			    "styles": {
-			      "button": {
-			        "background-color": "#c00a27",
-			        "font-size": "13px",
-			        "padding-top": "14.5px",
-			        "padding-bottom": "14.5px",
-			        ":hover": {
-			          "background-color": "#ad0923"
-			        },
-			        "border-radius": "10px",
-			        ":focus": {
-			          "background-color": "#ad0923"
-			        }
-			      },
-			      "footer": {
-			        "background-color": "#ffffff"
-			      }
-			    }
-			  },
-			  "modalProduct": {
-			    "contents": {
-			      "variantTitle": false,
-			      "buttonWithQuantity": false,
-			      "quantity": false
-			    },
-			    "styles": {
-			      "product": {
-			        "@media (min-width: 601px)": {
-			          "max-width": "100%",
-			          "margin-left": "20px",
-			          "margin-bottom": "50px"
-			        }
-			      },
-			      "button": {
-			        "background-color": "#c00a27",
-			        "font-size": "13px",
-			        "padding-top": "14.5px",
-			        "padding-bottom": "14.5px",
-			        ":hover": {
-			          "background-color": "#ad0923"
-			        },
-			        "border-radius": "10px",
-			        ":focus": {
-			          "background-color": "#ad0923"
-			        }
-			      },
-			      "price": {
-			        "font-size": "14px"
-			      },
-			      "quantityInput": {
-			        "font-size": "13px",
-			        "padding-top": "14.5px",
-			        "padding-bottom": "14.5px"
-			      }
-			    }
-			  },
-			  "toggle": {
-			    "styles": {
-			      "toggle": {
-			        "background-color": "#c00a27",
-			        ":hover": {
-			          "background-color": "#ad0923"
-			        },
-			        ":focus": {
-			          "background-color": "#ad0923"
-			        }
-			      },
-			      "count": {
-			        "font-size": "13px"
-			      }
-			    }
-			  },
-			  "productSet": {
-			    "styles": {
-			      "products": {
-			        "@media (min-width: 601px)": {
-			          "margin-left": "-20px"
-			        }
-			      }
-			    }
-			  }
-			}
-			      });
-			    });
-			  }
-			})();
-			/*]]>*/
-		</script>
+		<script src="http://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
+		<script src="http://sdks.shopifycdn.com/buy-button/0.1.34/buybutton.js"></script>
+
+		<script src="assets/js/shopify.js"></script>
 
 		<!-- structured data -->
 		<script type="application/ld+json">

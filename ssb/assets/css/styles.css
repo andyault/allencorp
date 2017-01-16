@@ -347,6 +347,8 @@ footer {
   padding: 0 1em; }
 #buy .body-title {
   line-height: 40px; }
+#buy .shopify-buy__quantity-container {
+  display: inline-block; }
 
 #contact {
   background: #eee; }
