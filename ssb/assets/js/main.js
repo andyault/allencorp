@@ -63,14 +63,52 @@ btnFeat.onclick = function() {
 btnFeat.checked = false;
 elemFeat.style.maxHeight = 0;
 
-/* 
-//clamp quantity to 1-99
-document.getElementById('license-quantity').onblur = function() {
-	if(this.value !== '') {
-		var min = parseInt(this.attributes.min.value);
-		var max = parseInt(this.attributes.max.value);
+//ajax form submit
+document.getElementById('contact-form').onsubmit = function(e) {
+	//send form data
+	var xhr = new XMLHttpRequest();
 
-		this.value = Math.max(Math.min(this.value, max), min);
+	xhr.open(this.method, this.action, true);
+
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState == 4) {
+			var message = document.getElementById('contact-status');
+
+			//response types
+			switch(xhr.status) {
+				case 200: //OK
+					message.classList.add('success');
+					message.innerText = 'Thanks!';
+
+					break;
+
+				case 400: //bad input
+					message.classList.add('failure');
+					message.innerText = 'Error - make sure all fields are filled';
+
+					break;
+
+				case 403: //bad token
+					message.classList.add('failure');
+					message.innerText = 'Error - invalid security token, try refreshing';
+
+					break;
+			}
+
+			message.classList.add('active');
+		}
 	}
+
+	xhr.send(new FormData(this));
+
+	//disable form controls
+	var elems = this.elements;
+
+	for(var i = 0; i < elems.length; i++) {
+		elems[i].disabled = true;
+	}
+
+	//prevent redirect
+	e.preventDefault();
+	return false;
 }
-*/

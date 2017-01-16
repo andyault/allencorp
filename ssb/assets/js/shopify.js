@@ -68,4 +68,14 @@ shopUI.createComponent('product', {
 			}
 		}
 	}
+}).then(function() {
+	//clamp quantity to 1-99
+	document.getElementsByClassName('input-quantity')[0].onblur = function() {
+		if(this.value !== '') {
+			var min = 1; //parseInt(this.attributes.min.value);
+			var max = 99; //parseInt(this.attributes.max.value);
+
+			this.value = Math.max(Math.min(this.value, max), min);
+		}
+	}
 })

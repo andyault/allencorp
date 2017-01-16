@@ -1,9 +1,7 @@
 <?php
 
-session_start();
-
 //config vars
-$toAddress 		= 'andrew.ault@outlook.com'; //'csdsales@allencorp.com';
+$toAddress 		= 'aault@allencorp.com'; //'csdsales@allencorp.com';
 $senderAddress 	= 'noreply@allencorporation.com'; 
 $subject 		= 'SSB Contact Form';
 $bodyWidth 		= 70;
@@ -12,10 +10,14 @@ $bodyWidth 		= 70;
 function fieldFilled($field) {
 	$value = $_POST[$field];
 
-	return (isset($value) && !empty(value));
+	return (isset($value) && !empty($value));
 }
 
 //form security
+require_once 'hash_equals.php';
+
+session_start();
+
 $csrfField = 'csrf-token';
 
 $postToken 		= $_POST[$csrfField];
@@ -52,11 +54,15 @@ if(!empty($postToken)) {
 				);
 
 				//done :)
-				http_response_code(200);
+				http_response_code(200); //OK
 
 				exit();
 			}
 		}
+
+		http_response_code(400); //bad request
+
+		exit();
 	}
 }
 

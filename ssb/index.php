@@ -1,3 +1,20 @@
+<?php
+	//csrf token
+	session_start();
+
+	$csrfField = 'csrf-token';
+	$csrfToken = $_SESSION[$csrfField];
+
+	if(empty($csrfToken)) {
+		if(function_exists('mcrypt_create_iv'))
+			$csrfToken = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+		else
+			$csrfToken = bin2hex(openssl_random_pseudo_bytes(32));
+
+		$_SESSION[$csrfField] = $csrfToken;
+	}
+?>
+
 <!doctype HTML>
 
 <html lang="en">
@@ -352,30 +369,22 @@
 					<span class="body body-title">McAfee Small Business Security License</span>
 
 					<span id="shopify-button" class="float-right"></span>
-
-					<!--
-					<span class="float-right">
-						<label class="body">
-							Quantity: 
-							<input id="license-quantity" class="input input-quantity" type="number" placeholder="1-99" maxlength="2" min="1" max="99" inputmode="numeric" required disabled>
-						</label>
-
-						<a href id="license-button" class="btn btn-buy" disabled>Add to Cart</a>
-					</span>
-					-->
 				</div>
 			</div>
 		</section>
 
-		<!--
 		<section id="contact">
 			<div class="content">
 				<h1 class="subtitle center upper">Questions?</h1>
 				<h1 class="title title-header center upper">We're here to help.</h1>
 
-				<form id="email" class="content body" method="post" action>
+				<form id="contact-form" class="content body" method="POST" action="http://localhost:8888/allencorp/ssb/email.php">
+					<p id="contact-status"></p>
+
+					<input type="hidden" name="<?php echo $csrfField ?>" value="<?php echo $csrfToken ?>">
+
 					<label>
-						Name: 
+						Name (Optional): 
 						<input type="text" name="name" class="input" autocomplete="name" placeholder="John Doe">
 					</label>
 
@@ -389,13 +398,12 @@
 						<textarea name="body" class="input" placeholder="Is McAfee Small Business Security right for me?" required></textarea>
 					</label>
 
-					<!- - <span class="body">You can also send an email to <a href="mailto:csdsales@allencorp.com">csdsales@allencorp.com</a>.</span> - ->
+					<!-- <span class="body">You can also send an email to <a href="mailto:csdsales@allencorp.com">csdsales@allencorp.com</a>.</span> -->
 
 					<input type="submit" class="btn btn-buy float-right">
 				</form>
 			</div>
 		</section>
-		-->
 
 		<footer class="body center">
 			&copy; <a href="/" class="link-nocolor">Allen Corporation</a> 2017 - <a href="#top" class="link-nocolor">Top</a>

@@ -78,7 +78,7 @@ footer {
 	transition-property: background, color, border-color;
 	transition-duration: $transLength;
 
-	&:hover, &.active {
+	&:hover, &.active, &[disabled] {
 		background: transparent;
 	}
 }
@@ -246,7 +246,7 @@ footer {
 .btn-buy {
 	background: $col3;
 
-	&:hover {
+	&:hover, &[disabled] {
 		color: $col3;
 		border-color: $col3;
 	}
@@ -278,6 +278,16 @@ footer {
 }
 
 .padded-list li { padding: 1em; }
+
+.success {
+	background: $col3;
+	color: $col1;
+}
+
+.failure {
+	background: $col2;
+	color: $col1;
+}
 
 /* ids */
 #splash {
@@ -395,13 +405,36 @@ footer {
 
 #contact { background: #eee; }
 
-#email {
+#contact-form {
 	width: 480px;
 	padding: 0 1em;
+
+	#contact-status {
+		width: 100%;
+		height: 2em;
+		max-height: 0;
+		overflow: hidden;
+
+		border-radius: 4px;
+		line-height: 2em;
+		text-align: center;
+
+		transition-property: max-height, margin-bottom;
+		transition-duration: $transLength;
+
+		&.active {
+			max-height: 2em;
+			margin-bottom: 1em;
+		}
+	}
 
 	.input, textarea {
 		width: 100%;
 		margin-top: 0.25em;
+
+		&[disabled] {
+			color: #999 !important;
+		}
 	}
 
 	.input {
