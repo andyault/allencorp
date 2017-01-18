@@ -25,7 +25,7 @@
 
 		<meta name="description" content="Allen Corporation of America presents McAfee Small Business Security, award winning protection for your home or business.">
 		<meta name="google-site-verification" content="yDpaEMhJ0S1kliXWHBxv0N-uGhfngwyNA90j1eq5qts" />
-
+		<meta name="msvalidate.01" content="4DF06806CC9FD35541BDAA5FE16F0277" />
 
 		<link rel="stylesheet" href="assets/css/normalize.css">
 		<link rel="stylesheet" href="assets/css/styles.css">
@@ -378,7 +378,7 @@
 				<h1 class="subtitle center upper">Questions?</h1>
 				<h1 class="title title-header center upper">We're here to help.</h1>
 
-				<form id="contact-form" class="content body" method="POST" action="http://localhost:8888/allencorp/ssb/email.php">
+				<form id="contact-form" class="content body" method="POST" action="email.php">
 					<p id="contact-status"></p>
 
 					<input type="hidden" name="<?php echo $csrfField ?>" value="<?php echo $csrfToken ?>">

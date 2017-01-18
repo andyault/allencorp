@@ -1,7 +1,7 @@
 <?php
 
 //config vars
-$toAddress 		= 'aault@allencorp.com'; //'csdsales@allencorp.com';
+$toAddress 		= 'csdsales@allencorp.com';
 $senderAddress 	= 'noreply@allencorporation.com'; 
 $subject 		= 'SSB Contact Form';
 $bodyWidth 		= 70;
