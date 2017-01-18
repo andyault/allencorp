@@ -12,7 +12,7 @@ header {
   background: #9e0807;
   height: 90px; }
 
-h1, p {
+h1, h2, h3, h4, p {
   margin: 0; }
 
 section {

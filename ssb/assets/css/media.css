@@ -14,8 +14,6 @@
 		background-size: 528px 352px;
 	}
 
-	#youtube-video { width: 480px; height: 270px; }
-
 	.award {
 		width: 96px;
 		height: 96px;
@@ -42,8 +40,6 @@
 
 		background-size: 318px 212px;
 	}
-
-	#youtube-video { width: 300px; height: 168.75px; }
 
 	.hide320 { display: none; }
 }

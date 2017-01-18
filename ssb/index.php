@@ -23,6 +23,7 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<!-- SEO -->
 		<meta name="description" content="Allen Corporation of America presents McAfee Small Business Security, award winning protection for your home or business.">
 		<meta name="google-site-verification" content="yDpaEMhJ0S1kliXWHBxv0N-uGhfngwyNA90j1eq5qts" />
 		<meta name="msvalidate.01" content="4DF06806CC9FD35541BDAA5FE16F0277" />
@@ -34,6 +35,22 @@
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Source+Sans+Pro:400,700" rel="stylesheet" async>
 
 		<title>McAfee Small Business Security</title>
+
+		<!-- structured data -->
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "Product",
+			  "description": "McAfee Small Business Security protects the devices that you use for your business so your customer data and sensitive information is safeguarded from hackers and criminals.",
+			  "name": "McAfee Small Business Security",
+			  "offers": {
+			    "@type": "Offer",
+			    "availability": "http://schema.org/InStock",
+			    "price": "14.00",
+			    "priceCurrency": "USD"
+			  }
+			}
+		</script>
 	</head>
 
 	<body>
@@ -56,7 +73,7 @@
 			</div>
 
 			<div class="content flex-middle">
-				<h1 class="body bold upper"><span class="col-accent">Allen Corporation</span> presents</h1>
+				<h3 class="body bold upper"><span class="col-accent">Allen Corporation</span> presents</h1>
 				<h1 class="title">McAfee<span class="sup">&copy;</span> Small Business Security</h1>
 
 				<p class="body iso">Comprehensive security for your business.</p>
@@ -67,41 +84,41 @@
 
 		<section id="features">
 			<div class="content">
-				<h1 class="subtitle upper center">Why us?</h1>
-				<h1 class="title title-header upper center">Features</h1>
+				<h3 class="subtitle upper center">Why us?</h1>
+				<h2 class="title title-header upper center">Features</h1>
 
 				<div id="highlights" class="flex flex-wrap flex-center col3 center">
 					<div class="highlight">
 						<div class="highlight-img" style="background-position: 0 0;"></div>
-						<h1 class="body body-header bold"><span class="col-accent">Comprehensive</span> security</h1>
+						<h4 class="body body-header bold"><span class="col-accent">Comprehensive</span> security</h1>
 
 						<p class="body body-em">Keep your business and customer data secure with email, web, and firewall protection.</p>
 					</div>
 
 					<div class="highlight">
 						<div class="highlight-img" style="background-position: 50% 0;"></div>
-						<h1 class="body body-header bold">Covers <span class="col-accent">all mobile devices</span></h1>
+						<h4 class="body body-header bold">Covers <span class="col-accent">all mobile devices</span></h1>
 
 						<p class="body body-em">Guard your PCs, Macs, smartphones and tablets against viruses, malware, and the latest online threats.</p>
 					</div>
 
 					<div class="highlight">
 						<div class="highlight-img" style="background-position: 100% 0;"></div>
-						<h1 class="body body-header bold">Simple and <span class="col-accent">easy to manage</span></h1>
+						<h4 class="body body-header bold">Simple and <span class="col-accent">easy to manage</span></h1>
 
 						<p class="body body-em">Manage all of your business's devices from one central location.</p>
 					</div>
 
 					<div class="highlight">
 						<div class="highlight-img" style="background-position: 0 100%;"></div>
-						<h1 class="body body-header bold">Flexible licensing for <span class="col-accent">your business</span></h1>
+						<h4 class="body body-header bold">Flexible licensing for <span class="col-accent">your business</span></h1>
 
 						<p class="body body-em">Increase the number of devices as your business grows to ensure you and your employees stay protected.</p>
 					</div>
 
 					<div class="highlight">
 						<div class="highlight-img" style="background-position: 50% 100%;"></div>
-						<h1 class="body body-header bold">Free <span class="col-accent">award-winning support</span></h1>
+						<h4 class="body body-header bold">Free <span class="col-accent">award-winning support</span></h1>
 
 						<p class="body body-em">Ensure your business stays protected with our award-winning technical support and PC Virus Removal Service for no additional cost.</p>
 					</div>
@@ -133,7 +150,7 @@
 						<li>Free technical support</li>
 						<li>Free virus removal service</li>
 						<li>Cloud based management</li>
-						<li style="flex-basis: 100%; list-style: none;"><a href="assets/datasheet.pdf" class="body-header">See data sheet with all features</a></li>
+						<li style="flex-basis: 100%; list-style: none;"><a href="http://www.allencorporation.com/pdf/mcafee-small-business-security-datasheet.pdf" class="body-header">See data sheet with all features</a></li>
 					</ul>
 				</div>
 
@@ -145,27 +162,27 @@
 
 		<section id="facts">
 			<div class="content center">
-				<h1 class="subtitle upper">Check the numbers</h1>
-				<h1 class="title title-header upper">Every day: </h1>
+				<h3 class="subtitle upper">Check the numbers</h1>
+				<h2 class="title title-header upper">Every day: </h1>
 
 				<ul class="flex flex-center col4 inline-list body padded-list">
 					<li>
-						<h1 class="title title-half col-accent">100 million</h1>
+						<h4 class="title title-half col-accent">100 million</h1>
 						<p>malicious URL visits prevented</p>
 					</li>
 
 					<li>
-						<h1 class="title title-half col-accent">30 million</h1>
+						<h4 class="title title-half col-accent">30 million</h1>
 						<p>potentionally unwanted programs stopped</p>
 					</li>
 
 					<li>
-						<h1 class="title title-half col-accent">104 million</h1>
+						<h4 class="title title-half col-accent">104 million</h1>
 						<p>malicious files removed</p>
 					</li>
 
 					<li>
-						<h1 class="title title-half col-accent">29 million</h1>
+						<h4 class="title title-half col-accent">29 million</h1>
 						<p>risky IP address connections blocked</p>
 					</li>
 				</ul>
@@ -173,8 +190,8 @@
 		</section>
 
 		<section id="awards" class="content center">
-			<h1 class="subtitle upper">Need more proof?</h1>
-			<h1 class="title title-header upper center">Awards &amp; Accolades</h1>
+			<h3 class="subtitle upper">Need more proof?</h1>
+			<h2 class="title title-header upper center">Awards &amp; Accolades</h1>
 
 			<ul class="inline-list padded-list center">
 				<li><a class="award" href="http://chart.av-comparatives.org/awards.php?year=2016"
@@ -199,8 +216,8 @@
 
 		<section id="compare">
 			<div class="content">
-				<h1 class="subtitle upper center">Us vs. Them</h1>
-				<h1 class="title title-header upper center">Compare to other AV solutions</h1>
+				<h3 class="subtitle upper center">Us vs. Them</h1>
+				<h2 class="title title-header upper center">Compare to other AV solutions</h1>
 
 				<table class="table body">
 					<colgroup>
@@ -362,8 +379,8 @@
 
 		<section id="buy">
 			<div class="content center">
-				<h1 class="subtitle center upper">Let's get started</h1>
-				<h1 class="title title-header center upper">Purchase a License</h1>
+				<h3 class="subtitle center upper">Let's get started</h1>
+				<h2 class="title title-header center upper">Purchase a License</h1>
 
 				<div class="shop-item">
 					<span class="body body-title">McAfee Small Business Security License</span>
@@ -375,8 +392,8 @@
 
 		<section id="contact">
 			<div class="content">
-				<h1 class="subtitle center upper">Questions?</h1>
-				<h1 class="title title-header center upper">We're here to help.</h1>
+				<h3 class="subtitle center upper">Questions?</h1>
+				<h2 class="title title-header center upper">We're here to help.</h1>
 
 				<form id="contact-form" class="content body" method="POST" action="email.php">
 					<p id="contact-status"></p>
@@ -417,22 +434,6 @@
 		<script src="http://sdks.shopifycdn.com/buy-button/0.1.34/buybutton.js"></script>
 
 		<script src="assets/js/shopify.js"></script>
-
-		<!-- structured data -->
-		<script type="application/ld+json">
-			{
-			  "@context": "http://schema.org",
-			  "@type": "Product",
-			  "description": "McAfee Small Business Security protects the devices that you use for your business so your customer data and sensitive information is safeguarded from hackers and criminals.",
-			  "name": "McAfee Small Business Security",
-			  "offers": {
-			    "@type": "Offer",
-			    "availability": "http://schema.org/InStock",
-			    "price": "14.00",
-			    "priceCurrency": "USD"
-			  }
-			}
-		</script>
 
 		<!-- google analytics -->
 		<script>
