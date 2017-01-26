@@ -1,0 +1,96 @@
+.col-accent {
+  color: #3f8ea6; }
+
+.btn {
+  background: #0d7c99; }
+  .btn:hover {
+    border-color: #0d7c99;
+    color: #0d7c99; }
+
+.btn-buy {
+  background: #66793a; }
+  .btn-buy:hover {
+    border-color: #66793a;
+    color: #66793a; }
+
+#splash {
+  background: url("../img/bg.png") repeat-x;
+  background-size: auto 100%; }
+  #splash #video {
+    display: none; }
+  #splash .col-accent {
+    color: #ffffff;
+    text-decoration: underline; }
+  #splash .splash-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 512px;
+    opacity: 0.3; }
+    #splash .splash-img:first-of-type {
+      margin-left: -230px;
+      transform: translate(-100%, -50%); }
+    #splash .splash-img:last-of-type {
+      margin-left: 180px;
+      transform: translate(0, -50%); }
+
+#bbb {
+  background: #eee; }
+  #bbb #bbb-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1em; }
+    #bbb #bbb-form label {
+      display: inline-block;
+      flex-basis: 50%;
+      margin-right: 1em; }
+      #bbb #bbb-form label input {
+        width: 100%; }
+    #bbb #bbb-form .label {
+      display: block; }
+  #bbb #bbb-results {
+    margin: 1em 0 0; }
+    #bbb #bbb-results .bbb-result {
+      width: 100%;
+      padding: 1em;
+      cursor: pointer;
+      background: #ffffff;
+      border-radius: 4px;
+      border: 2px solid transparent;
+      transition-property: background, border-color;
+      transition-duration: 0.3s; }
+      #bbb #bbb-results .bbb-result:hover {
+        background: #ddd;
+        border: 2px solid #ffffff; }
+      #bbb #bbb-results .bbb-result:not(:last-of-type) {
+        margin-bottom: 1em; }
+      #bbb #bbb-results .bbb-result h2 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+  #bbb #bbb-message {
+    display: none;
+    margin-top: 1em; }
+  #bbb #bbb-code {
+    display: none;
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1em;
+    background: #005a78;
+    color: #ffffff;
+    border-radius: 4px; }
+
+#buy {
+  padding-bottom: 3em; }
+
+#features {
+  background: #eee; }
+
+#facts {
+  background: none; }
+
+#compare {
+  background: #005a78; }
+
+/*# sourceMappingURL=styles.css.map */

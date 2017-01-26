@@ -41,6 +41,11 @@ footer {
   .table tbody td {
     font-size: 1.5em; }
 
+.form {
+  width: 480px;
+  padding: 0 1em;
+  overflow: visible; }
+
 /* elements */
 .btn {
   display: inline-block;
@@ -57,11 +62,14 @@ footer {
     background: transparent; }
 
 .input {
-  padding: .5em;
+  padding: calc(.5em + 1px);
   font-family: "Source Sans Pro", arial, sans-serif;
   font-size: 1em;
   border-radius: 4px;
   border: 1px solid #ccc; }
+  .input[disabled] {
+    color: #999 !important;
+    opacity: 0.5; }
 
 .col3 * {
   flex-basis: 33.33%; }
@@ -124,6 +132,20 @@ footer {
   width: 768px;
   max-width: 100%;
   text-align: left; }
+
+.status {
+  width: 100%;
+  height: 2em;
+  max-height: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  line-height: 2em;
+  text-align: center;
+  transition-property: max-height, margin-bottom;
+  transition-duration: 0.3s; }
+  .status.active {
+    max-height: 2em;
+    margin-bottom: 1em; }
 
 /* modifiers */
 .flex-wrap {
@@ -361,37 +383,19 @@ footer {
 #contact {
   background: #eee; }
 
-#contact-form {
-  width: 480px;
-  padding: 0 1em; }
-  #contact-form #contact-status {
-    width: 100%;
-    height: 2em;
-    max-height: 0;
-    overflow: hidden;
-    border-radius: 4px;
-    line-height: 2em;
-    text-align: center;
-    transition-property: max-height, margin-bottom;
-    transition-duration: 0.3s; }
-    #contact-form #contact-status.active {
-      max-height: 2em;
-      margin-bottom: 1em; }
-  #contact-form .input, #contact-form textarea {
-    width: 100%;
-    margin-top: 0.25em; }
-    #contact-form .input[disabled], #contact-form textarea[disabled] {
-      color: #999 !important; }
-  #contact-form .input {
-    margin-bottom: 1em; }
-  #contact-form textarea {
-    height: 6em;
-    margin-bottom: 0.5em;
-    resize: vertical; }
-  #contact-form span {
-    line-height: 40px;
-    font-size: 14px; }
-  #contact-form input[type="submit"] {
-    font-size: 1em; }
+#contact-form .input, #contact-form textarea {
+  width: 100%;
+  margin-top: 0.25em; }
+#contact-form .input {
+  margin-bottom: 1em; }
+#contact-form textarea {
+  height: 6em;
+  margin-bottom: 0.5em;
+  resize: vertical; }
+#contact-form span {
+  line-height: 40px;
+  font-size: 14px; }
+#contact-form input[type="submit"] {
+  font-size: 1em; }
 
 /*# sourceMappingURL=styles.css.map */

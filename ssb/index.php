@@ -180,6 +180,7 @@
 			</div>
 		</section>
 
+		<!--
 		<section id="awards" class="content center">
 			<h3 class="subtitle upper">Need more proof?</h3>
 			<h2 class="title title-header upper center">Awards &amp; Accolades</h2>
@@ -204,6 +205,7 @@
 						style="background-position: 100% 100%;"></a></li>
 			</ul>
 		</section>
+		-->
 
 		<section id="compare">
 			<div class="content">
@@ -228,7 +230,7 @@
 							<th></th>
 							<th>McAfee</th>
 							<th class="hide768">Sophos</th>
-							<th>Kapersky</th>
+							<th>Kaspersky</th>
 							<th class="hide768">ThreatTrack</th>
 							<th class="hide480">ESET</th>
 							<th class="hide320">Avast</th>
@@ -386,11 +388,11 @@
 				<h3 class="subtitle center upper">Questions?</h3>
 				<h2 class="title title-header center upper">We're here to help.</h2>
 
-				<form id="contact-form" class="content body" method="POST" action="email.php">
-					<p id="contact-status"></p>
+				<form id="contact-form" class="content body form" method="POST" action="email.php">
+					<p id="contact-status" class="status"></p>
 
 					<input type="hidden" name="<?php echo $csrfField ?>" value="<?php echo $csrfToken ?>">
-
+					
 					<label>
 						Name (Optional): 
 						<input type="text" name="name" class="input" autocomplete="name" placeholder="John Doe">
@@ -408,7 +410,7 @@
 
 					<!-- <span class="body">You can also send an email to <a href="mailto:csdsales@allencorp.com">csdsales@allencorp.com</a>.</span> -->
 
-					<input type="submit" class="btn btn-buy float-right">
+					<input type="submit" class="btn btn-buy float-right" >
 				</form>
 			</div>
 		</section>

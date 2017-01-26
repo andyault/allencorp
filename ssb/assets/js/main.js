@@ -6,41 +6,43 @@ var elemFeat = document.getElementById('morefeatures');
 var vid = document.getElementById('video-video');
 
 window.onresize = function() {
-	//ie???
-	try {
-		//see if we even want to load the video
-		if(document.body.clientWidth > 480)
-			vid.attributes.autoplay.value = 'true';
-		else
-			vid.attributes.autoplay.value = undefined;
-	} catch(e) {}
+	if(vid) {
+		//ie???
+		try {
+			//see if we even want to load the video
+			if(document.body.clientWidth > 480)
+				vid.attributes.autoplay.value = 'true';
+			else
+				vid.attributes.autoplay.value = undefined;
+		} catch(e) {}
 
-	//get size of parent container
-	var parentW = vid.parentNode.clientWidth;
-	var parentH = vid.parentNode.clientHeight;
+		//get size of parent container
+		var parentW = vid.parentNode.clientWidth;
+		var parentH = vid.parentNode.clientHeight;
 
-	//aspect ratio of video
-	var aspect = vid.videoWidth / vid.videoHeight;
+		//aspect ratio of video
+		var aspect = vid.videoWidth / vid.videoHeight;
 
-	//default to 1080p
-	if(isNaN(aspect)) aspect = 1920 / 1080;
+		//default to 1080p
+		if(isNaN(aspect)) aspect = 1920 / 1080;
 
-	//calc video size
-	var vidW = parentW;
-	var vidH = (parentW / aspect);
+		//calc video size
+		var vidW = parentW;
+		var vidH = (parentW / aspect);
 
-	//if portrait, adjust
-	if(vidH < parentH) {
-		vidH = parentH;
-		vidW = parentH * aspect;
+		//if portrait, adjust
+		if(vidH < parentH) {
+			vidH = parentH;
+			vidW = parentH * aspect;
+		}
+
+		//set size and pos
+		vid.style.width = vidW + 'px';
+		vid.style.height = vidH + 'px';
+
+		vid.style.top = (parentH / 2 - vidH / 2) + 'px';
+		vid.style.left = (parentW / 2 - vidW / 2) + 'px';
 	}
-
-	//set size and pos
-	vid.style.width = vidW + 'px';
-	vid.style.height = vidH + 'px';
-
-	vid.style.top = (parentH / 2 - vidH / 2) + 'px';
-	vid.style.left = (parentW / 2 - vidW / 2) + 'px';
 
 	//while we're here, handle features drawer resizing
 	if(!!parseInt(elemFeat.style.maxHeight))

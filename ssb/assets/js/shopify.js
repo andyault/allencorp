@@ -11,6 +11,8 @@ var shopClient = ShopifyBuy.buildClient({
 //init our UI lib
 var shopUI = ShopifyBuy.UI.init(shopClient);
 
+var shopifyColor = shopifyColor || '#079E34';
+
 shopUI.createComponent('product', {
 	id: 	'9117927236',
 	node: 	document.getElementById('shopify-button'),
@@ -44,12 +46,12 @@ shopUI.createComponent('product', {
 					'border': 				'2px solid transparent',
 					'transition-property': 	'background, color, border-color',
 					'transition-duration': 	0.3,
-					'background': 			'#079E34',
+					'background': 			shopifyColor,
 
 					':hover': {
 						'background': 	'transparent',
-						'border-color': '#079E34',
-						'color': 		'#079E34'
+						'border-color': shopifyColor,
+						'color': 		shopifyColor
 					}
 				}
 			}
@@ -58,10 +60,10 @@ shopUI.createComponent('product', {
 		toggle: {
 			styles: {
 				toggle: {
-					'background': '#079E34',
+					'background': shopifyColor,
 
 					':hover': {
-						'background': 	'#079E34',
+						'background': 	shopifyColor,
 						'opacity': 		0.9
 					}
 				}
