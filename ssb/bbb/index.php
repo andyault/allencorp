@@ -59,7 +59,7 @@
 			<img class="splash-img" src="assets/img/allen.svg">
 
 			<div class="content flex-middle">
-				<h3 class="body bold upper"><span class="col-accent">Allen Corporation</span> and the <span class="col-accent">Better Business Bureau</span> present</h3>
+				<h3 class="body bold upper"><a href="http://allencorporation.com/" class="col-accent link-nocolor">Allen Corporation</a> and the <a href="https://www.bbb.org/" class="col-accent link-nocolor">Better Business Bureau</a> present</h3>
 				<h1 class="title">McAfee<span class="sup">&copy;</span> Small Business Security</h1>
 
 				<p class="body iso">Comprehensive security for your BBB accredited business.</p>
@@ -68,6 +68,15 @@
 			</div>
 
 			<img class="splash-img" src="assets/img/bbb.svg">
+		</section>
+
+		<section id="bbb2">
+			<div class="content form center">
+				<h3 class="subtitle upper">Further Reading</h3>
+				<h2 class="title title-header upper">BBB Cybersecurity</h2>
+
+				<p class="iso center" style="margin-top: 2em;">See the BBB's <a href="http://www.bbb.org/council/for-businesses/cybersecurity/the-5-step-approach/" class="link-color">5 Steps to Better Business Cybersecurity</a> for more info.</p>
+			</div>
 		</section>
 
 		<section id="bbb">
@@ -384,7 +393,7 @@
 				<h3 class="subtitle center upper">Questions?</h3>
 				<h2 class="title title-header center upper">We're here to help.</h2>
 
-				<form id="contact-form" class="content body form" method="POST" action="email.php">
+				<form id="contact-form" class="content body form" method="POST" action="../email.php">
 					<p id="contact-status" class="status" style="font-size: 0.9em"></p>
 
 					<input type="hidden" name="<?php echo $csrfField ?>" value="<?php echo $csrfToken ?>">

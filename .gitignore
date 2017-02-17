@@ -1,3 +1,6 @@
 .sass-cache
 .DS_STORE
-
+config.php
+!config.php.example
+token.json
+bbbcodes.json

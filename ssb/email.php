@@ -45,7 +45,7 @@
 					$headers[] = 'From: ' . $name . ' via Contact Form <' . $fromAddress . '>';
 					$headers[] = 'Reply-to: ' . $name . '<' . $fromAddress . '>';
 					$headers[] = 'To: Sales Support <' . $toAddress . '>';
-					$headers[] = 'Cc: aault@allencorp.com';
+					//$headers[] = 'Cc: aault@allencorp.com';
 
 					//sending
 					if(mail(
