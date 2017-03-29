@@ -40,10 +40,10 @@
 
 					//headers
 					$headers = [
-						'Sender: ' . $config['senderAddress'],
-						'From: ' . $name . ' via Contact Form <' . $fromAddress . '>',
-						'Reply-to: ' . $name . '<' . $fromAddress . '>',
-						'To: Sales Support <' . $config['toAddress'] . '>'
+						sprintf('Sender: %s', $config['senderAddress']),
+						sprintf('From: %s via Contact Form <%s>', $name, $fromAddress),
+						sprintf('Reply-to: %s <%s>', $name, $fromAddress),
+						sprintf('To: Sales Support <%s>', $config['toAddress'])
 						//'Cc: aault@allencorp.com'
 					];
 
