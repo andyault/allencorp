@@ -1,11 +1,13 @@
 <?php
-	//require_once
+	//config
+	$config = include('config.php');
 
 	//config vars
-	$toAddress 		= 'smbsales@allencorporation.com';
-	$senderAddress 	= 'noreply@allencorporation.com'; 
-	$subject 		= 'SMB Contact Form';
-	$bodyWidth 		= 70;
+	$toAddress 		= $config['toAddress'];
+	$senderAddress 	= $config['senderAddress'];
+	$defaultName 	= $config['defaultName'];
+	$subject 		= $config['subject'];
+	$bodyWidth 		= $config['bodyWidth'];
 
 	//check post fields
 	function fieldFilled($field) {
@@ -35,12 +37,19 @@
 				if(filter_var($fromAddress, FILTER_VALIDATE_EMAIL)) {
 					$body = wordwrap($_POST['body'], $bodyWidth, "\r\n");
 
-					//filling out email headers
-					$name = 'McAfee Customer';
+					$name = $defaultName;
 
 					if(fieldFilled('name'))
 						$name = $_POST['name'];
 
+					//escape variables
+					$senderAddress 	= htmlspecialchars($senderAddress);
+					$fromAddress 	= htmlspecialchars($fromAddress);
+					$toAddress 		= htmlspecialchars($toAddress);
+					$name 			= htmlspecialchars($name);
+					$body 			= htmlspecialchars($body);
+
+					//headers
 					$headers[] = 'Sender: ' . $senderAddress;
 					$headers[] = 'From: ' . $name . ' via Contact Form <' . $fromAddress . '>';
 					$headers[] = 'Reply-to: ' . $name . '<' . $fromAddress . '>';

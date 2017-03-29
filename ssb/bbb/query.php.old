@@ -1,14 +1,12 @@
 <?php
 	//config
-	$config 		= include('config.php');
+	$config 	= include('config.php');
 
 	//globals
-	$couponsPath 	= 'discount_export.csv';
+	$url 		= 'https://api.bbb.org';
+	$fileName 	= 'token.json';
 
-	$url 			= 'https://api.bbb.org';
-	$tokenPath 		= 'token.json';
-
-	$maxCount 		= 10;
+	$maxCount 	= 10;
 
 	//attempting api
 	function curl($url, $method, $body, $headers = null) {
@@ -51,32 +49,8 @@
 		);
 	}
 
-	//getting coupon codes - shouldn't do this more than once per query
-	function getNextCode() {
-		global $couponsPath;
-
-		//csv to array
-		$coupons = array_map('str_getcsv', file($couponsPath));
-
-		//pop the line we want
-		$coupon = array_pop($coupons);
-
-		//put it back
-		$handle = fopen($couponsPath, 'w');
-
-		foreach($coupons as $line) {
-			fputcsv($handle, $line);
-		}
-
-		fclose($handle);
-
-		//done
-		if(count($coupons) > 0)
-			return $coupon[0];
-	}
-
 	//get our token, see if it's still good
-	$tokenString 	= @file_get_contents($tokenPath);
+	$tokenString 	= @file_get_contents($fileName);
 	$tokenJson 		= json_decode($tokenString, true);
 
 	//this should never expire but who knows
@@ -106,7 +80,7 @@
 			$tokenJson = json_decode($tokenString, true);
 
 			//try to write to file
-			if(!file_put_contents($tokenPath, $tokenString)) {
+			if(!file_put_contents($fileName, $tokenString)) {
 				http_response_code(500); //error
 				exit;
 			}
@@ -132,7 +106,7 @@
 
 	//now to use it
 	$id 	= $_GET['id'];
-	$state 	= strtoupper($_GET['state']);
+	$state 	= $_GET['state'];
 	$count 	= intval($_GET['count']);
 
 	$count 	= max(min(($count ? $count : 0), $maxCount), 1);
@@ -146,40 +120,13 @@
 	if($response['status'] == 200) {
 		http_response_code(200);
 
-		$responseJson = json_decode($response['response'], true);
-		$numResults = $responseJson['TotalResults'];
-
-		//only return responses that have the exact id/state
-		if($numResults > 0) {
-			//clamp TotalResults to count, easier for us
-			$numResults = min($numResults, $count);
-
-			foreach($responseJson['SearchResults'] as $key => $result) {
-				//check
-				if($result['BusinessId'] !== $id || $result['StateProvince'] !== $state) {
-					//remove if not exact
-					unset($responseJson['SearchResults'][$key]);
-
-					$numResults--;
-				}
-			}
-
-			$responseJson['TotalResults'] = $numResults;
-
-			//if we still have results, there's a match - respond with coupon code
-			if($numResults > 0) {
-				$responseJson['CouponCode'] = getNextCode();
-			}
-		}
-
-		//done
-		echo json_encode($responseJson);
+		echo $response['response'];
 
 		exit;
 	} else {
 		//token is bad
 		if($response['status'] == 401)
-			@unlink($tokenPath);
+			@unlink($fileName);
 
 		http_response_code(500);
 

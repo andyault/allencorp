@@ -4,81 +4,73 @@ var form = document.getElementById('bbb-form');
 form.onsubmit = function(e) {
 	var status = document.getElementById('bbb-status');
 
-	status.classList.remove('active');
-
-	//url
-	var url = this.action + '?';
+	status.classList.add('success', 'active');
+	status.innerText = 'Fetching results...'
 
 	//add all fields to get url and disable
 	var elems = this.elements;
 
-	for(var i = 0; i < elems.length; i++) {
-		var elem = elems[i];
+	for(var i = 0; i < elems.length; i++)
+		elems[i].disabled = true;
 
-		if(elem.type !== 'submit') {
-			if(i > 0)
-				url += '&';
+	setTimeout(function() {	
+		var data = {
+			"TotalResults":1,
+			"SearchResults":[
+				{
+					"OrganizationName":"Example Organization",
+					"PrimaryCategory":"Placeholder",
+					"City":"Myrtle Beach",
+					"StateProvince":"SC",
+					"PostalCode":"29579",
+					"Address":"123 Example St.",
+				}
+			],
+			"CouponCode":"33fc27e7f325-9das995b"
+		};
 
-			url += elem.name + '=' + elem.value;
+		var xhrstatus = 200;
+		
+		switch(xhrstatus) {
+			case 200: //OK
+				status.classList.remove('active');
+
+				populateResults(data);
+
+				//reenable form
+				for(var i = 0; i < elems.length; i++)
+					elems[i].disabled = false;
+
+				break;
+
+			case 202: //accepted
+				status.classList.add('success', 'active');
+
+				var time;
+
+				var id = setInterval(function update() {
+					time = Math.floor(new Date().getTime() / 1000);
+
+					status.innerText = 'Fetching new access token - please wait ' + (data - time) + 's';
+
+					return update;
+				}(), 1000);
+
+				setTimeout(function() {
+					form.onsubmit();
+					clearInterval(id);
+				}, (data - time) * 1000);
+
+				break;
+
+			case 403: //unauth - shouldn't ever happen
+			case 500: //error
+				status.innerText = 'Internal error - please refresh and try again.';
+				status.classList.add('failure', 'active');
+
+				break;
 		}
-
-		elem.disabled = true;
-	}
-
-	//xhr request
-	var xhr = new XMLHttpRequest();
-
-	xhr.onreadystatechange = function() {
-		if(xhr.readyState == 4) {
-			var data = JSON.parse(xhr.responseText);
-			
-			switch(xhr.status) {
-				case 200: //OK
-					populateResults(data);
-
-					//reenable form
-					for(var i = 0; i < elems.length; i++)
-						elems[i].disabled = false;
-
-					break;
-
-				case 202: //accepted
-					status.classList.add('success', 'active');
-
-					var time;
-
-					var id = setInterval(function update() {
-						time = Math.floor(new Date().getTime() / 1000);
-
-						status.innerText = 'Fetching new access token - please wait ' + (data - time) + 's';
-
-						return update;
-					}(), 1000);
-
-					setTimeout(function() {
-						form.onsubmit();
-						clearInterval(id);
-					}, (data - time) * 1000);
-
-					break;
-
-				case 403: //unauth - shouldn't ever happen
-				case 500: //error
-					status.innerText = 'Internal error - please refresh and try again.';
-					status.classList.add('failure', 'active');
-
-					break;
-			}
-		}
-	}
-
-	xhr.open(
-		this.method,
-		url,
-		true
-	);
-
-	xhr.send();
+	}, 1000);
 
 	//done :)
 	if(e)
@@ -148,7 +140,7 @@ var populateResults = function(data) {
 	if(data) {
 		if(data.TotalResults > 0) {
 			if(data.TotalResults > dataResults.length) {
-				message.innerText = 'Don\'t see your business? Double check your business ID.';
+				message.innerText = 'Don\'t see your business? Double check your ID.';
 
 				message.style.display = 'block';
 			}
@@ -173,19 +165,3 @@ var showCode = function() {
 	for(var i = 0; i < elems.length; i++)
 		elems[i].disabled = true;
 }
-
-//load codes
-var bbbCodes;
-
-var xhr = new XMLHttpRequest();
-xhr.overrideMimeType('application/json');
-
-xhr.open('GET', 'bbbcodes.json', true);
-
-xhr.onreadystatechange = function() {
-	if(xhr.readyState == 4) {
-		bbbCodes = JSON.parse(xhr.responseText);
-	}
-}
-
-xhr.send();

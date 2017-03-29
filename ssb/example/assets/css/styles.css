@@ -1,0 +1,87 @@
+.col-accent {
+  color: #E74C3C; }
+
+.btn {
+  background: #2980B9; }
+  .btn:hover {
+    border-color: #2980B9;
+    color: #2980B9; }
+
+.btn-buy {
+  background: #E74C3C; }
+  .btn-buy:hover {
+    border-color: #E74C3C;
+    color: #E74C3C; }
+  .btn-buy:disabled {
+    border-color: #2C3E50;
+    color: #2C3E50; }
+
+#splash {
+  background: #2980B9; }
+  #splash .col-accent {
+    color: #2C3E50;
+    text-decoration: underline; }
+
+.success {
+  background: #2980B9; }
+
+#bbb {
+  background: #eee; }
+  #bbb #bbb-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1em; }
+    #bbb #bbb-form label {
+      display: inline-block;
+      flex-basis: 50%;
+      margin-right: 1em; }
+      #bbb #bbb-form label input {
+        width: 100%; }
+    #bbb #bbb-form .label {
+      display: block; }
+  #bbb #bbb-results {
+    margin: 1em 0 0; }
+    #bbb #bbb-results .bbb-result {
+      width: 100%;
+      padding: 1em;
+      cursor: pointer;
+      background: #3498DB;
+      color: #fff;
+      border-radius: 4px;
+      border: 2px solid transparent;
+      transition-property: background, border-color;
+      transition-duration: 0.3s; }
+      #bbb #bbb-results .bbb-result:hover {
+        background: #2980B9; }
+      #bbb #bbb-results .bbb-result:not(:last-of-type) {
+        margin-bottom: 1em; }
+      #bbb #bbb-results .bbb-result h2 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+  #bbb #bbb-message {
+    display: none;
+    margin-top: 1em; }
+  #bbb #bbb-code {
+    display: none;
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1em;
+    background: #2980B9;
+    color: #ECF0F1;
+    border-radius: 4px; }
+
+#buy {
+  padding-bottom: 3em; }
+
+#features {
+  background: #eee; }
+
+#facts {
+  background: none; }
+
+#compare {
+  background: #3498DB; }
+
+/*# sourceMappingURL=styles.css.map */

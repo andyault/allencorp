@@ -90,7 +90,6 @@ form.onsubmit = function(e) {
 //handle response
 var elemResults = document.getElementById('bbb-results');
 var message = document.getElementById('bbb-message');
-var code = document.getElementById('bbb-code-code');
 
 var populateResults = function(data) {
 	//shortcut
@@ -134,9 +133,8 @@ var populateResults = function(data) {
 			elemResult.subtitle.innerText 	= dataResult.PrimaryCategory;
 			elemResult.location.innerText 	= dataResult.Address.trim() + ', ' + dataResult.City + ', ' + dataResult.StateProvince + ' ' + dataResult.PostalCode;
 
-			elemResult.onclick = showCode;
-
-			code.innerText = data.CouponCode;
+			elemResult.regionCode = parseInt(dataResult.BBBId);
+			elemResult.onclick = getCode;
 		} else {
 			if(elemResult)
 				elemResult.style.display = 'none';
@@ -161,9 +159,12 @@ var populateResults = function(data) {
 }
 
 var codeContainer = document.getElementById('bbb-code');
+var code = document.getElementById('bbb-code-code');
 
-var showCode = function() {
+var getCode = function() {
 	populateResults(); //empty to clear results element
+
+	code.innerText = bbbCodes[this.regionCode]; //add code
 
 	codeContainer.style.display = 'block'; //show code element
 

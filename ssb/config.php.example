@@ -1,0 +1,11 @@
+<?php
+
+return [
+	'toAddress' 	=> '****',
+	'senderAddress' => '****',
+	'defaultName' 	=> '****',
+	'subject' 		=> '****',
+	'bodyWidth' 	=> 70
+]
+
+?>

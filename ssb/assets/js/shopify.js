@@ -54,6 +54,10 @@ shopUI.createComponent('product', {
 						'color': 		shopifyColor
 					}
 				}
+			},
+
+			text: {
+				notice: 'Discount codes are added at checkout.'
 			}
 		},
 

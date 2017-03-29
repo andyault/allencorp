@@ -398,4 +398,13 @@ footer {
 #contact-form input[type="submit"] {
   font-size: 1em; }
 
+/* resets for number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+input[type="number"] {
+  -moz-appearance: textfield; }
+
 /*# sourceMappingURL=styles.css.map */

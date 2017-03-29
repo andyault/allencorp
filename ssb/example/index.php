@@ -1,20 +1,3 @@
-<?php
-	//csrf token
-	session_start();
-
-	$csrfField = 'csrf-token';
-	$csrfToken = $_SESSION[$csrfField];
-
-	if(empty($csrfToken)) {
-		if(function_exists('mcrypt_create_iv'))
-			$csrfToken = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
-		else
-			$csrfToken = bin2hex(openssl_random_pseudo_bytes(32));
-
-		$_SESSION[$csrfField] = $csrfToken;
-	}
-?>
-
 <!doctype HTML>
 
 <html lang="en">
@@ -24,14 +7,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- SEO -->
-		<meta name="description" content="Comprehensive security for your business - now only $14 per license.">
+		<meta name="description" content="Allen Corporation of America and the Better Business Bureau present McAfee Small Business Security, award winning protection for your home or business.">
 		<meta name="google-site-verification" content="yDpaEMhJ0S1kliXWHBxv0N-uGhfngwyNA90j1eq5qts" />
 		<meta name="msvalidate.01" content="4DF06806CC9FD35541BDAA5FE16F0277" />
 
-		<!-- css -->
-		<link rel="stylesheet" href="assets/css/normalize.css">
+		<link rel="stylesheet" href="../assets/css/normalize.css">
+		<link rel="stylesheet" href="../assets/css/styles.css">
+		<link rel="stylesheet" href="../assets/css/media.css">
 		<link rel="stylesheet" href="assets/css/styles.css">
-		<link rel="stylesheet" href="assets/css/media.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Source+Sans+Pro:400,700" rel="stylesheet">
 
@@ -43,7 +26,7 @@
 			  "@context": "http://schema.org",
 			  "@type": "Product",
 			  "description": "McAfee Small Business Security protects the devices that you use for your business so your customer data and sensitive information is safeguarded from hackers and criminals.",
-			  "name": "McAfee Small Business Security - Single License",
+			  "name": "McAfee Small Business Security",
 			  "offers": {
 			    "@type": "Offer",
 			    "availability": "http://schema.org/InStock",
@@ -55,31 +38,62 @@
 	</head>
 
 	<body>
-		<header>
-			<div class="content">
-				<a href="/"><img src="assets/img/logo.png" alt="Allen Corporation of America Inc."></a>
-			</div>
-		</header>
-
 		<section id="splash">
-			<div id="video">
-				<div class="filter"></div>
-
-				<video id="video-video" autoplay loop>
-					<source src="assets/img/splash/splash.mp4" type="video/mp4">
-					<source src="assets/img/splash/splash.webm" type="video/webm">
-				</video>
-
-				<div class="video-fallback"></div>
-			</div>
-
 			<div class="content flex-middle">
-				<h3 class="body bold upper"><span class="col-accent">Allen Corporation</span> presents</h3>
+				<h3 class="body bold upper"><a href="http://allencorporation.com/" class="col-accent link-nocolor">Allen Corporation</a> and <a class="col-accent link-nocolor">Your Company</a> present</h3>
 				<h1 class="title">McAfee<span class="sup">&copy;</span> Small Business Security</h1>
 
 				<p class="body iso">Comprehensive security for your business.</p>
 
 				<a href="#buy" class="btn btn-buy">See Pricing</a>
+			</div>
+		</section>
+
+		<section id="bbb">
+			<div class="content form">
+				<h3 class="subtitle upper center">Are you a customer?</h3>
+				<h2 class="title title-header upper center">Customer Lookup</h2>
+
+				<p id="bbb-status" class="status"></p>
+
+				<form action="query.php" method="GET" id="bbb-form" class="content body form">
+					<input type="hidden" name="count" value="4">
+
+					<label style="flex-grow: 1">
+						<span class="label">ID:</span>
+						<input type="number" name="id" class="input" placeholder="12345678">
+					</label>
+
+					<label style="flex-basis: 4em">
+						<span class="label">State:</span>
+						<input type="text" name="state" class="input" placeholder="SC" maxlength="2">
+					</label>
+
+					<input type="submit" class="btn btn-buy float-right" value="Search">
+				</form>
+
+				<ul id="bbb-results" class="inline-list">
+				</ul>
+
+				<p id="bbb-message" class="body center"></p>
+
+				<div id="bbb-code" class="body center">
+					<p>Your promo code is</p>
+					<p id="bbb-code-code" class="body-title"></p>
+				</div>
+			</div>
+		</section>
+
+		<section id="buy">
+			<div class="content center">
+				<h3 class="subtitle center upper">Let's get started</h3>
+				<h2 class="title title-header center upper">Purchase a License</h2>
+
+				<div class="shop-item">
+					<span class="body body-title">McAfee Small Business Security License</span>
+
+					<span id="shopify-button" class="float-right"></span>
+				</div>
 			</div>
 		</section>
 
@@ -181,33 +195,6 @@
 			</div>
 		</section>
 
-		<!--
-		<section id="awards" class="content center">
-			<h3 class="subtitle upper">Need more proof?</h3>
-			<h2 class="title title-header upper center">Awards &amp; Accolades</h2>
-
-			<ul class="inline-list padded-list center">
-				<li><a class="award" href="http://chart.av-comparatives.org/awards.php?year=2016"
-						style="background-position: 0 0;"></a></li>
-
-				<li><a class="award" href="https://www.av-test.org/en/antivirus/home-windows/windows-10/october-2016/"
-						style="background-position: 50% 0;"></a></li>
-
-				<li><a class="award" href="https://securingtomorrow.mcafee.com/business/security-connected/mcafee-siem-receives-techtarget-readers-choice-awards-2014/"
-						style="background-position: 100% 0;"></a></li>
-
-				<li><a class="award" href="http://www.toptenreviews.com/software/security/best-antivirus-software/mcafee-review/"
-						style="background-position: 0 100%;"></a></li>
-
-				<li><a class="award" href="http://www.toptenreviews.com/software/security/best-antivirus-software/mcafee-review/"
-						style="background-position: 50% 100%;"></a></li>
-
-				<li><a class="award" href="http://www.pcmag.com/article2/0,2817,2469309,00.asp"
-						style="background-position: 100% 100%;"></a></li>
-			</ul>
-		</section>
-		-->
-
 		<section id="compare">
 			<div class="content">
 				<h3 class="subtitle upper center">Us vs. Them</h3>
@@ -231,7 +218,7 @@
 							<th></th>
 							<th>McAfee</th>
 							<th class="hide768">Sophos</th>
-							<th>Kaspersky</th>
+							<th>Kapersky</th>
 							<th class="hide768">ThreatTrack</th>
 							<th class="hide480">ESET</th>
 							<th class="hide320">Avast</th>
@@ -371,29 +358,16 @@
 			</div>
 		</section>
 
-		<section id="buy">
-			<div class="content center">
-				<h3 class="subtitle center upper">Let's get started</h3>
-				<h2 class="title title-header center upper">Purchase a License</h2>
-
-				<div class="shop-item">
-					<span class="body body-title">McAfee Small Business Security License</span>
-
-					<span id="shopify-button" class="float-right"></span>
-				</div>
-			</div>
-		</section>
-
 		<section id="contact">
 			<div class="content">
 				<h3 class="subtitle center upper">Questions?</h3>
 				<h2 class="title title-header center upper">We're here to help.</h2>
 
-				<form id="contact-form" class="content body form" method="POST" action="email.php">
-					<p id="contact-status" class="status"></p>
+				<form id="contact-form" class="content body form" method="POST" action="return false;">
+					<p id="contact-status" class="status" style="font-size: 0.9em"></p>
 
 					<input type="hidden" name="<?php echo $csrfField ?>" value="<?php echo $csrfToken ?>">
-					
+
 					<label>
 						Name (Optional): 
 						<input type="text" name="name" class="input" autocomplete="name" placeholder="John Doe">
@@ -411,7 +385,7 @@
 
 					<!-- <span class="body">You can also send an email to <a href="mailto:csdsales@allencorp.com">csdsales@allencorp.com</a>.</span> -->
 
-					<input type="submit" class="btn btn-buy float-right" >
+					<input type="submit" class="btn btn-buy float-right">
 				</form>
 			</div>
 		</section>
@@ -421,13 +395,14 @@
 		</footer>
 
 		<!-- basic js -->
+		<script src="../assets/js/main.js"></script>
 		<script src="assets/js/main.js"></script>
 
 		<!-- shopify -->
 		<script src="http://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
 		<script src="http://sdks.shopifycdn.com/buy-button/0.1.34/buybutton.js"></script>
-
-		<script src="assets/js/shopify.js"></script>
+		<script>shopifyColor = '#468966';</script>
+		<script src="../assets/js/shopify.js"></script>
 
 		<!-- google analytics -->
 		<script>
