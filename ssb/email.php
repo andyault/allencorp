@@ -1,13 +1,10 @@
 <?php
+	session_start();
+
+	require_once 'hash_equals.php';
+
 	//config
 	$config = include('config.php');
-
-	//config vars
-	$toAddress 		= $config['toAddress'];
-	$senderAddress 	= $config['senderAddress'];
-	$defaultName 	= $config['defaultName'];
-	$subject 		= $config['subject'];
-	$bodyWidth 		= $config['bodyWidth'];
 
 	//check post fields
 	function fieldFilled($field) {
@@ -16,50 +13,42 @@
 		return (isset($value) && !empty($value));
 	}
 
+	//escape input
+	function e($str) {
+		return htmlspecialchars(trim($str));
+	}
+
 	//form security
-	require_once 'hash_equals.php';
-
-	session_start();
-
-	$csrfField = 'csrf-token';
-
-	$postToken 		= $_POST[$csrfField];
-	$sessionToken 	= $_SESSION[$csrfField];
+	$postToken 		= $_POST['csrf-token'];
+	$sessionToken 	= $_SESSION['csrf-token'];
 
 	//only process form info if our token matches
 	if(!empty($postToken)) {
 		if(hash_equals($sessionToken, $postToken)) {
 			//make sure fields are filled
 			if(fieldFilled('email') && fieldFilled('body')) {
-				$fromAddress = $_POST['email'];
+				$fromAddress = e($_POST['email']);
 
 				//make sure email is valid
 				if(filter_var($fromAddress, FILTER_VALIDATE_EMAIL)) {
-					$body = wordwrap($_POST['body'], $bodyWidth, "\r\n");
+					$body = wordwrap(e($_POST['body']), $config['bodyWidth'], "\r\n");
 
-					$name = $defaultName;
+					$name = $config['defaultName'];
 
 					if(fieldFilled('name'))
-						$name = $_POST['name'];
-
-					//escape variables
-					$senderAddress 	= htmlspecialchars($senderAddress);
-					$fromAddress 	= htmlspecialchars($fromAddress);
-					$toAddress 		= htmlspecialchars($toAddress);
-					$name 			= htmlspecialchars($name);
-					$body 			= htmlspecialchars($body);
+						$name = e($_POST['name']);
 
 					//headers
-					$headers[] = 'Sender: ' . $senderAddress;
+					$headers[] = 'Sender: ' . $config['senderAddress'];
 					$headers[] = 'From: ' . $name . ' via Contact Form <' . $fromAddress . '>';
 					$headers[] = 'Reply-to: ' . $name . '<' . $fromAddress . '>';
-					$headers[] = 'To: Sales Support <' . $toAddress . '>';
+					$headers[] = 'To: Sales Support <' . $config['toAddress'] . '>';
 					//$headers[] = 'Cc: aault@allencorp.com';
 
 					//sending
 					if(mail(
-						$toAddress,
-						$subject,
+						$config['toAddress'],
+						$config['subject'],
 						$body,
 						implode("\r\n", $headers)
 					)) {
