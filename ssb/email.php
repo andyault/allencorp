@@ -31,23 +31,16 @@
 		if(hash_equals($sessionToken, $postToken)) {
 			//make sure fields are filled
 			if(fieldFilled('email') && fieldFilled('body')) {
-				$fromAddress = $_POST['email'];
+				$fromAddress = htmlspecialchars($_POST['email']);
 
 				//make sure email is valid
 				if(filter_var($fromAddress, FILTER_VALIDATE_EMAIL)) {
-					$body = wordwrap($_POST['body'], $bodyWidth, "\r\n");
+					$body = wordwrap(htmlspecialchars($_POST['body']), $bodyWidth, "\r\n");
 
 					$name = $defaultName;
 
 					if(fieldFilled('name'))
-						$name = $_POST['name'];
-
-					//escape variables
-					$senderAddress 	= htmlspecialchars($senderAddress);
-					$fromAddress 	= htmlspecialchars($fromAddress);
-					$toAddress 		= htmlspecialchars($toAddress);
-					$name 			= htmlspecialchars($name);
-					$body 			= htmlspecialchars($body);
+						$name = htmlspecialchars($_POST['name']);
 
 					//headers
 					$headers[] = 'Sender: ' . $senderAddress;
