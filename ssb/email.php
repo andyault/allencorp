@@ -39,11 +39,13 @@
 						$name = e($_POST['name']);
 
 					//headers
-					$headers[] = 'Sender: ' . $config['senderAddress'];
-					$headers[] = 'From: ' . $name . ' via Contact Form <' . $fromAddress . '>';
-					$headers[] = 'Reply-to: ' . $name . '<' . $fromAddress . '>';
-					$headers[] = 'To: Sales Support <' . $config['toAddress'] . '>';
-					//$headers[] = 'Cc: aault@allencorp.com';
+					$headers = [
+						'Sender: ' . $config['senderAddress'],
+						'From: ' . $name . ' via Contact Form <' . $fromAddress . '>',
+						'Reply-to: ' . $name . '<' . $fromAddress . '>',
+						'To: Sales Support <' . $config['toAddress'] . '>'
+						//'Cc: aault@allencorp.com'
+					];
 
 					//sending
 					if(mail(
