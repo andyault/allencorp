@@ -1,6 +1,7 @@
 /* mobile */
 @media (max-width: 768px) {
 	.content { width: 480px; }
+	.text-content { width: 480px !important; }
 
 	.col3 * { flex-basis: 50%; }
 	.col4 { flex-wrap: wrap; }
@@ -34,6 +35,15 @@
 	#splash #video-video { display: none; }
 	.content { width: 300px !important; }
 
+	#award #award-img {
+		position: relative;
+		height: 128px;
+		left: 50%;
+		margin-left: 0;
+		float: none;
+		transform: translateX(-50%);
+	}
+
 	.highlight div {
 		width: 106px;
 		height: 106px;
@@ -47,6 +57,7 @@
 /* tablet */
 @media (min-width: 769px) and (max-width: 900px) {
 	.content { width: 768px; }
+	.text-content { width: 480px !important; }
 
 	.col3 * { flex-basis: 50%; }
 	.col6 * { flex-basis: 25%; }

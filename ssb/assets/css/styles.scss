@@ -52,6 +52,10 @@ footer {
 	overflow: hidden;
 }
 
+.text-content {
+	width: 768px !important;
+}
+
 .table {
 	margin-top: 2em;
 	table-layout: fixed;
@@ -362,6 +366,19 @@ footer {
 	.btn-buy { font-size: 1.125em; margin-top: 1em; }
 }
 
+#award {
+	background: #eee;
+
+	#award-img {
+		height: 200px;
+		float: right;
+		margin: 0 0 16px 16px;
+	}
+
+	p { margin-bottom: 1em; }
+	li { margin-bottom: 0.6em; }
+}
+
 #seemorefeatures {
 	position: absolute;
 	left: -999px;
@@ -391,7 +408,7 @@ footer {
 	}
 }
 
-#youtube-video { width: 768px; height: 432px; }
+#youtube-video { height: 432px; }
 
 #facts {
 	background: #eee;

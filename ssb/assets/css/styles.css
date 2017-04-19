@@ -34,6 +34,9 @@ footer {
   transform: translateX(-50%);
   overflow: hidden; }
 
+.text-content {
+  width: 768px !important; }
+
 .table {
   margin-top: 2em;
   table-layout: fixed;
@@ -332,6 +335,17 @@ footer {
     font-size: 1.125em;
     margin-top: 1em; }
 
+#award {
+  background: #eee; }
+  #award #award-img {
+    height: 200px;
+    float: right;
+    margin: 0 0 16px 16px; }
+  #award p {
+    margin-bottom: 1em; }
+  #award li {
+    margin-bottom: 0.6em; }
+
 #seemorefeatures {
   position: absolute;
   left: -999px; }
@@ -350,7 +364,6 @@ footer {
   content: 'Hide'; }
 
 #youtube-video {
-  width: 768px;
   height: 432px; }
 
 #facts {
