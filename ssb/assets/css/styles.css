@@ -1,4 +1,74 @@
 /* variables */
+.carousel {
+  position: relative;
+  display: flex;
+  padding-bottom: 48px;
+  justify-content: center;
+  align-items: stretch; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 0; }
+
+.carousel-content {
+  width: 1200px;
+  overflow: hidden;
+  transition: height 1s; }
+
+.carousel-arrow {
+  position: relative;
+  display: block;
+  width: 80px; }
+  .carousel-arrow::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    opacity: 0.5;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000; }
+  .carousel-arrow:hover::after {
+    opacity: 1; }
+  .carousel-arrow.carousel-arrow-prev::after {
+    right: 16px;
+    transform: rotate(135deg); }
+  .carousel-arrow.carousel-arrow-next::after {
+    left: 14px;
+    transform: rotate(-45deg); }
+
+.carousel-dot {
+  margin: 0 4px;
+  border-radius: 4px;
+  border: 4px solid #000;
+  opacity: 0.25; }
+  .carousel-dot.active {
+    opacity: 0.5; }
+
+.carousel-slide p {
+  margin-bottom: 1em; }
+
+#carousel {
+  background: #eee; }
+
+@media (max-width: 768px) {
+  .carousel-content {
+    width: 480px; }
+
+  .carousel-arrow {
+    display: none; } }
+/* small mobile */
+@media (max-width: 480px) {
+  .carousel-content {
+    width: 300px !important; } }
+/* tablet */
+@media (min-width: 769px) and (max-width: 900px) {
+  .carousel-content {
+    width: 768px; } }
+/* laptop */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .carousel-content {
+    width: 900px; } }
 /* basics */
 * {
   box-sizing: border-box; }
@@ -295,6 +365,10 @@ footer {
   background: #9E0807;
   color: #FFFFFF; }
 
+.list-nopadding {
+  margin: 0;
+  padding: 0; }
+
 /* ids */
 #splash {
   display: flex;
@@ -335,16 +409,12 @@ footer {
     font-size: 1.125em;
     margin-top: 1em; }
 
-#award {
-  background: #eee; }
-  #award #award-img {
-    height: 200px;
-    float: right;
-    margin: 0 0 16px 16px; }
-  #award p {
-    margin-bottom: 1em; }
-  #award li {
-    margin-bottom: 0.6em; }
+#award #award-img {
+  height: 200px;
+  float: right;
+  margin: 0 0 16px 16px; }
+#award li {
+  margin-bottom: 0.6em; }
 
 #seemorefeatures {
   position: absolute;

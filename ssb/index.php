@@ -79,50 +79,35 @@
 
 				<p class="body iso">Comprehensive security for your business.</p>
 
-				<a href="#buy" class="btn btn-buy">See Pricing</a>
+				<a href="#compare" class="btn btn-buy">See Pricing</a>
 			</div>
 		</section>
 
-		<section id="award">
-			<div class="content center">
-				<h3 class="subtitle upper col-accent" style="opacity: 1;">New</h3>
-				<h2 class="title title-header upper">AV-Test 2017 Certified</h2>
+		<section id="carousel" class="carousel">
+			<a href="#" class="carousel-arrow carousel-arrow-prev"></a>
+			
+			<?php
+				//get all filenames in /carousel directory
+				$dirname = '/carousel';
+				$root = dirname(__FILE__);
 
-				<div class="text-content content left">
-					<img id="award-img" src="assets/img/award.png" alt="av-test award">
+				//scandir for sort support
+				$files = preg_grep('/^[^.]/', scandir($root . $dirname, SCANDIR_SORT_DESCENDING));
+			?>
 
-					<p>The German anti-malware test-lab AV-Test has published the results of its latest 
-					round of Mobile security effectiveness tests which focused on malware detection 
-					capabilities as well as performance and features.</p>
-
-					<p>With a score of 13 points out of 13 McAfee Mobile Security 4.8 achieved a perfect
-					score of 100% (100% detection in Real Time test and 100% detection in Standard test)
-					with 0% False Positives while having perfect score for Usability as well as 
-					Performance.</p>
-
-					<p>McAfee Mobile Security thus continues to be one of the best-in-class Mobile 
-					Security products.</p>
-	 
-					<p>Also note that:</p>
-
-					<ul>
-						<li>McAfee Mobile Security managed to beat the average industry performance 
-						which was 99.0%</li>
-
-						<li>McAfee Mobile Security continued to excel in usability and performance</li> 
-	 
-						<li>McAfee Mobile Security achieved perfect scores when it comes to detecting 
-						Mobile Ransomware families as well as the area we feel will be the biggest 
-						concern in 2017, Mobile banking Trojans</li>
-	 
-						<li>The number of participants has dropped to 20, vendors such as AVG, Avira and
-						Qihoo have withdrawn from participation.</li>
-					</ul>
-
-					<p class="center">The detailed results of the test on McAfee Mobile Security 4.8 can be found 
-					<a href="https://www.av-test.org/en/antivirus/mobile-devices/android/march-2017/mcafee-mobile-security-4.8-170911/">here.</a></p>
-				</div>
+			<div class="carousel-content">
+				<?php
+					foreach($files as $file) {
+						include_once($root . $dirname . '/' . $file);
+					}
+				?>
 			</div>
+
+			<a href="#" class="carousel-arrow carousel-arrow-next"></a>
+
+			<ul class="carousel-dots inline-list center">
+				<?php for($i = 0; $i < count($files); $i++) echo '<li class="carousel-dot"></li>'; ?>
+			</ul>
 		</section>
 
 		<section id="features">
@@ -408,6 +393,10 @@
 						<tr>
 							<td class="center" colspan="9">* Partially supported</td>
 						</tr>
+
+						<tr>
+							<td class="center" colspan="9">** Please <a href="#contact" class="link-nocolor">contact us</a> for information on bulk purchases.</td>
+						</tr>
 					</tfoot>
 				</table>
 			</div>
@@ -464,6 +453,41 @@
 
 		<!-- basic js -->
 		<script src="assets/js/main.js"></script>
+
+		<!-- carousel - https://github.com/pawelgrzybek/siema -->
+		<script src="assets/js/siema.min.js"></script>
+		<script>
+			var carouselEl = document.getElementsByClassName('carousel-content')[0];
+			var dots = document.getElementsByClassName('carousel-dot');
+
+			var onChange = function() {
+				//change carousel height
+				carouselEl.style.height = carouselEl.children[0].children[carousel.currentSlide].scrollHeight + 'px';
+
+				//highlight dots
+				for(var i = 0; i < dots.length; i++) {
+					if(i == carousel.currentSlide)
+						dots[i].classList.add('active');
+					else
+						dots[i].classList.remove('active');
+				}
+			}
+
+			var carousel = new Siema({
+				selector: carouselEl,
+				duration: 1000,
+				perPage:  1,
+				loop:     true,
+				onChange: onChange
+			});
+
+			//arrows
+			document.querySelector('.carousel-arrow-prev').onclick = function() { carousel.prev(); return false; }
+			document.querySelector('.carousel-arrow-next').onclick = function() { carousel.next(); return false; }
+
+			//init
+			onChange();
+		</script>
 
 		<!-- shopify -->
 		<script src="http://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>

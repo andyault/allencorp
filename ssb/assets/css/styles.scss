@@ -13,6 +13,8 @@ $col5: 	#005a9e;
 
 $transLength: 	0.3s;
 
+@import 'carousel';
+
 /* basics */
 * {
 	box-sizing: border-box;
@@ -323,6 +325,11 @@ footer {
 	color: $col1;
 }
 
+.list-nopadding {
+	margin: 0;
+	padding: 0;
+}
+
 /* ids */
 #splash {
 	display: flex;
@@ -367,15 +374,12 @@ footer {
 }
 
 #award {
-	background: #eee;
-
 	#award-img {
 		height: 200px;
 		float: right;
 		margin: 0 0 16px 16px;
 	}
 
-	p { margin-bottom: 1em; }
 	li { margin-bottom: 0.6em; }
 }
 
